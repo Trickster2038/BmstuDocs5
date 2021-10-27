@@ -1,0 +1,13 @@
+[≪Interface≫;ICandidate|+getFio(): string;+getAge(): uint; +getIncome(): uint; +getFraction(): Fraction; +getVoices(): uint]
+
+[Candidate|-fio: string; -age: uint; -income: uint; -fraction: Fractioon; -voices: uint|+Candidate(..); +getFio(): string;+getAge(): uint; +getIncome(): uint; +getFraction(): Fraction; +getVoices(): uint]
+
+[<<Interface>>;IFabricMethod|+create(..): *ICandidate]
+
+[FabricMethod|+create(..): *ICandidate]
+
+[IFabricMethod]^[FabricMethod]
+
+[ICandidate]^[Candidate]
+
+[IFabricMethod]->[ICandidate]
