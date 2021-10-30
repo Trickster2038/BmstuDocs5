@@ -12,11 +12,6 @@
                 <interface sztype="Ethernet" interfacename="GE" count="24" />
             </slot>
         </dev>
-        <dev id="F36DB13E-BC82-4631-A800-0DCAB95F2049" name="LSW4" poe="0" model="S5700" settings="" system_mac="4C-1F-CC-10-3C-07" com_port="2004" bootmode="0" cx="558.000000" cy="293.000000" edit_left="585" edit_top="347">
-            <slot number="slot17" isMainBoard="1">
-                <interface sztype="Ethernet" interfacename="GE" count="24" />
-            </slot>
-        </dev>
         <dev id="8577D6EE-D416-4249-83AD-2DA4E93DD077" name="LSW1" poe="0" model="S5700" settings="" system_mac="4C-1F-CC-70-33-0C" com_port="2002" bootmode="0" cx="367.000000" cy="117.000000" edit_left="394" edit_top="171">
             <slot number="slot17" isMainBoard="1">
                 <interface sztype="Ethernet" interfacename="GE" count="24" />
@@ -31,6 +26,11 @@
             <slot number="slot17" isMainBoard="1">
                 <interface sztype="Ethernet" interfacename="GE" count="1" />
                 <interface sztype="Ethernet" interfacename="GE" count="2" />
+            </slot>
+        </dev>
+        <dev id="F36DB13E-BC82-4631-A800-0DCAB95F2049" name="LSW4" poe="0" model="S5700" settings="" system_mac="4C-1F-CC-10-3C-07" com_port="2004" bootmode="0" cx="558.000000" cy="293.000000" edit_left="585" edit_top="347">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="GE" count="24" />
             </slot>
         </dev>
     </devices>
