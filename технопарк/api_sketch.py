@@ -1,6 +1,7 @@
 import requests
 from urllib.parse import urljoin
 import json
+from templates.jsons import CampagnJsons
 
 id = 1401571
 csrf_token = "ut3qTnrRuyuaPXIsosd2EGMntCxRj9tP9CRbA7IXOtnZrgkHDvaUMnzmZyKsbEN8"
@@ -125,7 +126,19 @@ class ApiClient:
                 return True
         return False
 
-
+    def create_campaign(self, name):
+        payload = CampagnJsons.DEFAULT
+        payload['name'] = name
+        payload = json.dumps(payload)
+        url = "https://target.my.com/api/v2/campaigns.json"
+        headers = {
+            'X-CSRFToken': self.csrf_token,
+            'Cookie': self.cookie,
+            'Content-Type': 'application/json'
+        }
+        response = self.session.request(
+            "POST", url, headers=headers, data=payload)
+        return response
 
 def test1():
     client = ApiClient()
@@ -177,5 +190,13 @@ def test5():
     # print(resp.json())
     assert client.check_campaign_presence("Новая кампания 02.11.2021 13:30:20")
 
+def test6():
+    client = ApiClient()
+    client.csrf_token = csrf_token
+    client.cookie = cookie
+    resp = client.create_campaign("MY NEW CAMP")
+    print(resp)
+    print(resp.json())
+
 if __name__ == "__main__":
-    test5()
+    test6()
