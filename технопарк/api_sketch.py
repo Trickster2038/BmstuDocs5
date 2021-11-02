@@ -1,7 +1,10 @@
 import requests
 from urllib.parse import urljoin
 import json
+
+from requests.api import request
 from templates.jsons import CampagnJsons
+from requests.cookies import cookiejar_from_dict
 
 id = 1401571
 csrf_token = "ut3qTnrRuyuaPXIsosd2EGMntCxRj9tP9CRbA7IXOtnZrgkHDvaUMnzmZyKsbEN8"
@@ -126,6 +129,7 @@ class ApiClient:
                 return True
         return False
 
+    # .json() returns id
     def create_campaign(self, name):
         payload = CampagnJsons.DEFAULT
         payload['name'] = name
@@ -139,6 +143,67 @@ class ApiClient:
         response = self.session.request(
             "POST", url, headers=headers, data=payload)
         return response
+
+    def get_token(self, resp):
+        headers = resp.headers['Set-Cookie'].split(';')
+        token_header = [h for h in headers if 'csrftoken' in h]
+        if not token_header:
+            raise Exception('No csrftoken header found in main page headers')
+
+        token_header = token_header[0]
+        token = token_header.split('=')[-1]
+        return token
+
+    def login(self, username, passw):
+        params = "?lang=ru&nosavelogin=0"
+        url = "https://auth-ac.my.com/auth" + params
+        headers = {
+            'Content-Type': 'application/x-www-form-urlencoded'#'application/json' 
+        }
+        #     'Cookie': self.cookie,
+        #     'Connection': 'keep-alive',
+        #     'Accept-Encoding': 'gzip, deflate, br'
+        # }
+        # 'csrf_token': 'CgOY7O98KldfolqC5Lg27D'
+        # payload = {
+        #     'email': username,
+        #     'password': passw,
+        #     'continue': "https://target.my.com/auth/mycom?state=target_login%3D1%26ignore_opener%3D1#email",
+        #     'failure': "https://account.my.com/login/"
+
+        # }
+        # payload = json.dumps(payload)
+        payload = "email=tttshelby6%40gmail.com&password=S3leniumpass&continue=https%3A%2F%2Ftarget.my.com%2Fauth%2Fmycom%3Fstate%3Dtarget_login%253D1%2526ignore_opener%253D1%23email&failure=https%3A%2F%2Faccount.my.com%2Flogin%2F"
+        print(payload)
+        response = self.session.request(
+            "POST", url, headers=headers, data=payload, allow_redirects=False)
+
+        params1 = "?state=target_login%3D1%26ignore_opener%3D1"
+        url1 = "https://target.my.com/auth/mycom" + params1
+
+        response1 = self.session.request(
+            "GET", url1, allow_redirects=False)
+
+        params2 = "?from=http%3A%2F%2Ftarget.my.com%2Fauth%2Fmycom%3Fstate%3Dtarget_login%253D1%2526ignore_opener%253D1"
+        url2 = "https://auth-ac.my.com/sdc" + params1
+
+        response2 = self.session.request(
+            "GET", url2, allow_redirects=False)
+
+        # cookie1 = response.headers['Set-Cookie']
+        # self.cookie += "; csrf_token=" + cookie1
+
+        # print('')
+        # print(response1.url)
+        # print(response1)
+        # print(response1.headers)
+        # print(response1.text)
+        # print('')
+
+        # response = self.session.request(
+        #     "POST", url, headers=headers, data=payload)
+        return response
+
 
 def test1():
     client = ApiClient()
@@ -174,6 +239,7 @@ def test3():
     # print(resp.text.count("room 50541e3"))
     assert(client.check_segment_presence("room 50541e3"))
 
+
 def test4():
     client = ApiClient()
     client.csrf_token = csrf_token
@@ -181,6 +247,7 @@ def test4():
     resp = client.delete_campaign(46498588)
     # print(resp.json())
     assert resp.status_code == 204
+
 
 def test5():
     client = ApiClient()
@@ -190,6 +257,7 @@ def test5():
     # print(resp.json())
     assert client.check_campaign_presence("Новая кампания 02.11.2021 13:30:20")
 
+
 def test6():
     client = ApiClient()
     client.csrf_token = csrf_token
@@ -198,5 +266,19 @@ def test6():
     print(resp)
     print(resp.json())
 
+
+def test7():
+    client = ApiClient()
+    # client.cookie = "_gcl_au=1.1.927225171.1635860223"
+    client.cookie = "_gcl_au=1.1.927225171.1635860281"
+    # client.cookie = ''
+    # client.cookie = "tmr_lvid=62eb5ba99f745ac0674cf6bb5b1496bd; tmr_lvidTS=1635860005219; _gcl_au=1.1.1477758274.1635860005; _fbp=fb.1.1635860005638.434159890; _ga=GA1.2.774654065.1635860006; _gid=GA1.2.2109926772.1635860006; tmr_reqNum=5"
+    resp = client.login("tttshelby6@gmail.com", "S3leniumpass")
+    print(resp.status_code)
+    print(resp.url)
+    print('')
+    print(resp.headers)
+
+
 if __name__ == "__main__":
-    test6()
+    test7()
