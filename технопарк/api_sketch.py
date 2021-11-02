@@ -109,6 +109,23 @@ class ApiClient:
             "POST", url, headers=headers, data=payload)
         return response
 
+    def get_campaigns(self):
+        params = "?fields=id%2Cname%2Cdelivery%2Cprice%2Cbudget_limit%2Cbudget_limit_day%2Cpads_ots_limits%2Ccreated%2Cissues%2Cprices%2Cstatus%2Cpackage_id%2Cinterface_read_only%2Cread_only%2Cobjective%2Cuser_id%2Ctargetings__split_audience%2Ctargetings__pads%2Cenable_utm%2Cutm%2Cage_restrictions%2Cpackage_priced_event_type%2Cautobidding_mode&sorting=-id&limit=10&offset=0&_status__in=active&_user_id__in=11727528&_=1635850432320"
+        url = "https://target.my.com/api/v2/campaigns.json" + params
+        headers = {
+            'Cookie': self.cookie
+        }
+        response = self.session.request("GET", url, headers=headers)
+        return response
+
+    def check_campaign_presence(self, name):
+        campaigns = self.get_campaigns().json()
+        for x in campaigns['items']:
+            if x['name'] == name:
+                return True
+        return False
+
+
 
 def test1():
     client = ApiClient()
@@ -152,7 +169,13 @@ def test4():
     # print(resp.json())
     assert resp.status_code == 204
 
-
+def test5():
+    client = ApiClient()
+    client.csrf_token = csrf_token
+    client.cookie = cookie
+    resp = client.get_campaigns()
+    # print(resp.json())
+    assert client.check_campaign_presence("Новая кампания 02.11.2021 13:30:20")
 
 if __name__ == "__main__":
-    test4()
+    test5()
