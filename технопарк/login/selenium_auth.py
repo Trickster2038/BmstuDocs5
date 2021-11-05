@@ -1,9 +1,28 @@
 import pytest
-from selenium import webdriver
+
+# from selenium import webdriver
+from seleniumwire import webdriver
+
 import locators
 from webdriver_manager.chrome import ChromeDriverManager
 
 def test_one(login):
+    driver = login
+    for request in driver.requests:
+        if request.response:
+            if request.url.count("auth?lang") > 0:
+                print("")
+                print(
+                    dir(request)
+                )
+                print("")
+                print("Body: " + str(request.body))
+                print("Cert: " + str(request.cert))
+                print("Params: " + str(request.params))
+                print("QueryStr: " + str(request.querystring))
+                print("\n ================ \n")
+                print(request.response.headers)
+
     assert True
 
 @pytest.fixture(scope='function', autouse=False)

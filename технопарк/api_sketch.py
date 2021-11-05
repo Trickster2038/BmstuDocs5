@@ -158,37 +158,42 @@ class ApiClient:
         params = "?lang=ru&nosavelogin=0"
         url = "https://auth-ac.my.com/auth" + params
         headers = {
-            'Content-Type': 'application/x-www-form-urlencoded'#'application/json' 
+            'Content-Type': 'application/x-www-form-urlencoded', #'application/json' 
+            'Referer': 'https://target.my.com/'
         }
         #     'Cookie': self.cookie,
         #     'Connection': 'keep-alive',
         #     'Accept-Encoding': 'gzip, deflate, br'
         # }
         # 'csrf_token': 'CgOY7O98KldfolqC5Lg27D'
-        # payload = {
-        #     'email': username,
-        #     'password': passw,
-        #     'continue': "https://target.my.com/auth/mycom?state=target_login%3D1%26ignore_opener%3D1#email",
-        #     'failure': "https://account.my.com/login/"
+        payload0 = {
+            'email': username,
+            'password': passw,
+            'continue': "https://target.my.com/auth/mycom?state=target_login%3D1%26ignore_opener%3D1#email",
+            'failure': "https://account.my.com/login/"
 
-        # }
+        }
         # payload = json.dumps(payload)
-        payload = "email=tttshelby6%40gmail.com&password=S3leniumpass&continue=https%3A%2F%2Ftarget.my.com%2Fauth%2Fmycom%3Fstate%3Dtarget_login%253D1%2526ignore_opener%253D1%23email&failure=https%3A%2F%2Faccount.my.com%2Flogin%2F"
+        payload = b"email=tttshelby6%40gmail.com&password=S3leniumpass&continue=https%3A%2F%2Ftarget.my.com%2Fauth%2Fmycom%3Fstate%3Dtarget_login%253D1%2526ignore_opener%253D1%23email&failure=https%3A%2F%2Faccount.my.com%2Flogin%2F"
         print(payload)
         response = self.session.request(
             "POST", url, headers=headers, data=payload, allow_redirects=False)
 
-        params1 = "?state=target_login%3D1%26ignore_opener%3D1"
-        url1 = "https://target.my.com/auth/mycom" + params1
+        print(dir(response.request))
+        print(response.request.body)
+        print("\n ============================== \n")
 
-        response1 = self.session.request(
-            "GET", url1, allow_redirects=False)
+        # params1 = "?state=target_login%3D1%26ignore_opener%3D1"
+        # url1 = "https://target.my.com/auth/mycom" + params1
 
-        params2 = "?from=http%3A%2F%2Ftarget.my.com%2Fauth%2Fmycom%3Fstate%3Dtarget_login%253D1%2526ignore_opener%253D1"
-        url2 = "https://auth-ac.my.com/sdc" + params1
+        # response1 = self.session.request(
+        #     "GET", url1, allow_redirects=False)
 
-        response2 = self.session.request(
-            "GET", url2, allow_redirects=False)
+        # params2 = "?from=http%3A%2F%2Ftarget.my.com%2Fauth%2Fmycom%3Fstate%3Dtarget_login%253D1%2526ignore_opener%253D1"
+        # url2 = "https://auth-ac.my.com/sdc" + params1
+
+        # response2 = self.session.request(
+        #     "GET", url2, allow_redirects=False)
 
         # cookie1 = response.headers['Set-Cookie']
         # self.cookie += "; csrf_token=" + cookie1
@@ -282,4 +287,4 @@ def test7():
 
 
 if __name__ == "__main__":
-    test6()
+    test7()
