@@ -1,6 +1,7 @@
 import requests
 from urllib.parse import urljoin
 import json
+import urllib.parse
 
 from requests.api import request
 from templates.jsons import CampagnJsons
@@ -157,27 +158,50 @@ class ApiClient:
         token = token_header.split('=')[-1]
         return token
 
-    def login(self, username=None, passw=None):
+    def login2(self, username, passw):
         params = "?lang=ru&nosavelogin=0"
         url = "https://auth-ac.my.com/auth" + params
         headers = {
-            'Content-Type': 'application/x-www-form-urlencoded',  # 'application/json'
+            'Content-Type': 'application/json',   
             'Referer': 'https://target.my.com/'
         }
-        #     'Cookie': self.cookie,
-        #     'Connection': 'keep-alive',
-        #     'Accept-Encoding': 'gzip, deflate, br'
-        # }
-        # 'csrf_token': 'CgOY7O98KldfolqC5Lg27D'
-        payload0 = {
-            'email': username,
-            'password': passw,
-            'continue': "https://target.my.com/auth/mycom?state=target_login%3D1%26ignore_opener%3D1#email",
-            'failure': "https://account.my.com/login/"
+        username = urllib.parse.quote(username.encode('utf-8'))
+        passw = urllib.parse.quote(passw.encode('utf-8'))
+        payload = f"email={username}&password={passw}&continue=https%3A%2F%2Ftarget.my.com%2Fauth%2Fmycom%3Fstate%3Dtarget_login%253D1%2526ignore_opener%253D1%23email&failure=https%3A%2F%2Faccount.my.com%2Flogin%2F"
+        payload = payload.encode('utf-8')
+        response = self.session.request(
+            "POST", url, headers=headers, data=payload, allow_redirects=False)
+        cookie = response.headers['Set-Cookie']
+        self.cookie += "; " + cookie
+        while 'Location' in response.headers:
+            url = response.headers['Location']
+            response = self.session.request(
+            "GET", url, allow_redirects=False)
+            if 'Set-Cookie' in response.headers:
+                cookie = response.headers['Set-Cookie']
+                self.cookie += "; " + cookie
 
+        responseCSRF = self.session.request(
+            "GET", "https://target.my.com/csrf")
+
+        cookieCSRF = responseCSRF.headers['Set-Cookie']
+        self.cookie += "; " + cookieCSRF
+        self.csrf_token = cookieCSRF.split("=")[1].split(";")[0]
+        return response
+            
+
+
+    def login(self, username, passw):
+        params = "?lang=ru&nosavelogin=0"
+        url = "https://auth-ac.my.com/auth" + params
+        headers = {
+            'Content-Type': 'application/json', #'application/x-www-form-urlencoded',  
+            'Referer': 'https://target.my.com/'
         }
-        # payload = json.dumps(payload)
-        payload = b"email=tttshelby6%40gmail.com&password=S3leniumpass&continue=https%3A%2F%2Ftarget.my.com%2Fauth%2Fmycom%3Fstate%3Dtarget_login%253D1%2526ignore_opener%253D1%23email&failure=https%3A%2F%2Faccount.my.com%2Flogin%2F"
+        username = urllib.parse.quote(username.encode('utf-8'))
+        passw = urllib.parse.quote(passw.encode('utf-8'))
+        payload = f"email={username}&password={passw}&continue=https%3A%2F%2Ftarget.my.com%2Fauth%2Fmycom%3Fstate%3Dtarget_login%253D1%2526ignore_opener%253D1%23email&failure=https%3A%2F%2Faccount.my.com%2Flogin%2F"
+        payload = payload.encode('utf-8')
         # print(payload)
         response = self.session.request(
             "POST", url, headers=headers, data=payload, allow_redirects=False)
@@ -312,9 +336,9 @@ def test6():
     client.csrf_token = csrf_token
     # client.cookie = cookie
     client.cookie = "_gcl_au=1.1.927225171.1635860281"
-    client.login()
+    client.login2("tttshelby6@gmail.com", "S3leniumpass")
     # print(client.)
-    resp = client.create_campaign("MY NEW CAMP")
+    resp = client.create_campaign("My camp")
     print(resp)
     print(resp.json())
     # print(resp.json()['id'])
