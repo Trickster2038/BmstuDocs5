@@ -7,10 +7,9 @@ from templates.jsons import CampagnJsons
 from requests.cookies import cookiejar_from_dict
 
 id = 1401571
-csrf_token = "ut3qTnrRuyuaPXIsosd2EGMntCxRj9tP9CRbA7IXOtnZrgkHDvaUMnzmZyKsbEN8"
+csrf_token = "thlIWpX0BO0L816hA3v6WJftssMyL8SKFVIe4CwNnm0UGLxM7KkdmqhEUmh6bHn3"
 # cookie = "tmr_lvid=97eb38a6b9b3da5caa5eb1138bd057aa; tmr_lvidTS=1635089481459; _ga=GA1.3.760277518.1635089482; z=xzml6o34u0l1xxydaq430gdg9lkskfcs; _ga=GA1.2.760277518.1635089482; mrcu=327F61757C5331593AF21C11C851; p=ZAAAAEnzFAAA; s=rt=1|dpr=1.25; __utma=144340137.760277518.1635089482.1635089493.1635089493.1; __utmz=144340137.1635089493.1.1.utmcsr=target.my.com|utmccn=(referral)|utmcmd=referral|utmcct=/; _gid=GA1.3.735643551.1635841274; _gid=GA1.2.735643551.1635841274; _gac_UA-54874995-1=1.1635841276.EAIaIQobChMIq4Coz5_58wIVD2YYCh1i1g13EAAYASAAEgKEhvD_BwE; mc=a79c9b0ab4ad7dae9f16238df3403402b265d13134383632; sdc=FUE7lcj4tRKsGOxY; _gac_UA-54874995-1=1.1635841276.EAIaIQobChMIq4Coz5_58wIVD2YYCh1i1g13EAAYASAAEgKEhvD_BwE; _gcl_au=1.1.98288910.1635841303; _fbp=fb.1.1635841303613.1674862734; csrftoken=ut3qTnrRuyuaPXIsosd2EGMntCxRj9tP9CRbA7IXOtnZrgkHDvaUMnzmZyKsbEN8; tmr_detect=0%7C1635841477183; tmr_reqNum=44"
-cookie = "tmr_lvid=97eb38a6b9b3da5caa5eb1138bd057aa; tmr_lvidTS=1635089481459; _ga=GA1.3.760277518.1635089482; _ga=GA1.2.760277518.1635089482; mrcu=327F61757C5331593AF21C11C851; p=ZAAAAEnzFAAA; s=rt=1|dpr=1.25; __utma=144340137.760277518.1635089482.1635089493.1635089493.1; __utmz=144340137.1635089493.1.1.utmcsr=target.my.com|utmccn=(referral)|utmcmd=referral|utmcct=/; _gac_UA-54874995-1=1.1635841276.EAIaIQobChMIq4Coz5_58wIVD2YYCh1i1g13EAAYASAAEgKEhvD_BwE; _gcl_au=1.1.98288910.1635841303; _fbp=fb.1.1635841303613.1674862734; csrftoken=ut3qTnrRuyuaPXIsosd2EGMntCxRj9tP9CRbA7IXOtnZrgkHDvaUMnzmZyKsbEN8; z=tf8lbwkij6i26n0o2ya0c6hekm44ujwy; mc=89deb164612f7a4891318203ffd9aabab265d13134383632; sdc=dsAcBCoxLieagMHN; _gid=GA1.3.809879900.1636105958; _gac_UA-54874995-1=1.1636105958.EAIaIQobChMIgseu0fmA9AIVCrwYCh3hTAGgEAAYASAAEgIvK_D_BwE; _gat_UA-54874995-1=1; tmr_detect=0%7C1636105960312; tmr_reqNum=178"
-
+cookie = "z=jd6h4s3mk5jfeaz3zzstzn5zopae44fn; tmr_lvid=5fdb762aac7f8fb9ba72591e1c4d9cc4; tmr_lvidTS=1636113727422; _gcl_au=1.1.514482122.1636113728; _ga=GA1.3.1841633936.1636113728; _gid=GA1.3.1503435107.1636113728; _fbp=fb.1.1636113728430.799637019; _ga=GA1.2.1841633936.1636113728; _gid=GA1.2.1503435107.1636113728; mc=475097eaa24d7b10a88aafeafe026c4bb265d13134383632; mrcu=991C61851D4C40BED0CC5B11C851; sdc=RxcAldjsWI9DMtZT; csrftoken=thlIWpX0BO0L816hA3v6WJftssMyL8SKFVIe4CwNnm0UGLxM7KkdmqhEUmh6bHn3; tmr_detect=0%7C1636113746347; tmr_reqNum=10"
 
 class ApiClient:
 
@@ -120,6 +119,9 @@ class ApiClient:
             'Cookie': self.cookie
         }
         response = self.session.request("GET", url, headers=headers)
+        print("Campaings list response: ")
+        print(response)
+        # print(response.json())
         return response
 
     def check_campaign_presence(self, name):
@@ -154,7 +156,7 @@ class ApiClient:
         token = token_header.split('=')[-1]
         return token
 
-    def login(self, username, passw):
+    def login(self, username=None, passw=None):
         params = "?lang=ru&nosavelogin=0"
         url = "https://auth-ac.my.com/auth" + params
         headers = {
@@ -175,38 +177,67 @@ class ApiClient:
         }
         # payload = json.dumps(payload)
         payload = b"email=tttshelby6%40gmail.com&password=S3leniumpass&continue=https%3A%2F%2Ftarget.my.com%2Fauth%2Fmycom%3Fstate%3Dtarget_login%253D1%2526ignore_opener%253D1%23email&failure=https%3A%2F%2Faccount.my.com%2Flogin%2F"
-        print(payload)
+        # print(payload)
         response = self.session.request(
             "POST", url, headers=headers, data=payload, allow_redirects=False)
 
         print(dir(response.request))
-        print(response.request.body)
-        print("\n ============================== \n")
+
+        cookie1 = response.headers['Set-Cookie']
+        self.cookie += "; " + cookie1
 
         # params1 = "?state=target_login%3D1%26ignore_opener%3D1"
         # url1 = "https://target.my.com/auth/mycom" + params1
+        url1 = response.headers['Location']
 
-        # response1 = self.session.request(
-        #     "GET", url1, allow_redirects=False)
+        response1 = self.session.request(
+            "GET", url1, allow_redirects=False)
 
         # params2 = "?from=http%3A%2F%2Ftarget.my.com%2Fauth%2Fmycom%3Fstate%3Dtarget_login%253D1%2526ignore_opener%253D1"
-        # url2 = "https://auth-ac.my.com/sdc" + params1
+        # url2 = "https://auth-ac.my.com/sdc" + params2
+        url2 = response1.headers['Location']
 
-        # response2 = self.session.request(
-        #     "GET", url2, allow_redirects=False)
+        response2 = self.session.request(
+            "GET", url2, allow_redirects=False)
 
-        # cookie1 = response.headers['Set-Cookie']
-        # self.cookie += "; csrf_token=" + cookie1
+        cookie2 = response2.headers['Set-Cookie']
+        print("")
+        # print(cookie2)
+        self.cookie += "; " + cookie2
 
-        # print('')
-        # print(response1.url)
-        # print(response1)
-        # print(response1.headers)
-        # print(response1.text)
-        # print('')
+        url3 = response2.headers['Location']
+        response3 = self.session.request(
+            "GET", url3, allow_redirects=False)
 
-        # response = self.session.request(
-        #     "POST", url, headers=headers, data=payload)
+        # cookie3 = response3.headers['Set-Cookie']
+        # print("")
+        # # print(cookie2)
+        # self.cookie += "; " + cookie3
+
+        url4 = response3.headers['Location']
+        response4 = self.session.request(
+            "GET", url4, allow_redirects=False)
+
+        cookie4 = response4.headers['Set-Cookie']
+        print("")
+        # print(cookie2)
+        self.cookie += "; " + cookie4
+
+        url5 = response4.headers['Location']
+        response5 = self.session.request(
+            "GET", url5, allow_redirects=False)
+
+        url6 = response5.headers['Location']
+        response6 = self.session.request(
+            "GET", url6, allow_redirects=False)
+        
+        cookie6 = response6.headers['Set-Cookie']
+        print("")
+        # print(cookie2)
+        self.cookie += "; " + cookie6
+        print("\n ============================== \n")
+
+        response = response6
         return response
 
 
@@ -256,9 +287,12 @@ def test4():
 
 def test5():
     client = ApiClient()
-    client.csrf_token = csrf_token
-    client.cookie = cookie
+    # client.csrf_token = csrf_token
+    # client.cookie = ""
+    client.cookie = "_gcl_au=1.1.927225171.1635860281"
+    client.login()
     resp = client.get_campaigns()
+    print(client.cookie.count("csrf"))
     # print(resp.json())
     assert client.check_campaign_presence("Новая кампания 02.11.2021 13:30:20")
 
@@ -266,11 +300,13 @@ def test5():
 def test6():
     client = ApiClient()
     client.csrf_token = csrf_token
-    client.cookie = cookie
+    # client.cookie = cookie
+    client.cookie = "_gcl_au=1.1.927225171.1635860281"
+    client.login()
     resp = client.create_campaign("MY NEW CAMP")
     print(resp)
     print(resp.json())
-    print(resp.json()['id'])
+    # print(resp.json()['id'])
 
 
 def test7():
@@ -287,4 +323,4 @@ def test7():
 
 
 if __name__ == "__main__":
-    test7()
+    test6()
