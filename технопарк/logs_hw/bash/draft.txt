@@ -1,0 +1,17 @@
+wc -l access.log | awk '{print $1}' >> report.txt - число строк
+
+awk '{if(length($6)<10)print $6}' access.log | cut -c 2- | sort |uniq -c | awk '{print $2 " - " $1}' - пост и гет
+
+cat access.log | grep g369g=%40eval - поиск невалидной строки
+
+awk '{print $6 " " $7 " " $8}' access.log | sort | uniq -c | sort -nrk1 | head -10     - топ 10 запросов 
+
+awk '{print $1 " " $6 " " $7 " " $8 " " $9 " " $10}' access.log | awk '{if(match($5,'/4../')) print}'| sort -nrk6 | head -5   - 5 больших запросов с 4ХХ
+
+awk '{print $1 " " $9}' access.log | awk '{if(match($2,'/5../')) print}' | awk '{print $1}' | sort | uniq -c | sort -nrk1 |head -5    - 5 с кодом 5ХХ
+
+======================================================
+
+< access.log uniq -c | head
+
+awk -F " " '{print $1 " " $6 " " $7}' access.log | head - колонки через пробел

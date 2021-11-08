@@ -1,0 +1,40 @@
+Отчет по логу: 
+
+Всего запросов:
+225133
+
+Число запросов (по типу):
+[ тип | число запросов ]
+GET - 122095
+HEAD - 528
+POST - 102503
+PUT - 6
+
+Топ 10 самых частых запросов:
+[ число запросов | url ]
+ 103932 /administrator/index.php
+  26336 /apache-log/access.log
+   6940 /
+   4980 /templates/_system/css/general.css
+   3199 /robots.txt
+   2356 http://almhuette-raith.at/administrator/index.php
+   2201 /favicon.ico
+   1644 /wp-login.php
+   1563 /administrator/
+   1287 /templates/jp_hotel/css/template.css
+
+Топ 5 самых больших по размеру запросов, которые завершились клиентской (4ХХ) ошибкой:
+[ IP | url | код ответа | размер ]
+189.217.45.73 "GET /index.php?option=com_phocagallery&view=category&id=7806&Itemid=53 HTTP/1.1" 404 1417
+189.217.45.73 "GET /index.php?option=com_phocagallery&view=category&id=4025&Itemid=53 HTTP/1.1" 404 1417
+189.217.45.73 "GET /index.php?option=com_phocagallery&view=category&id=%28SELECT%20%28CASE%20WHEN%20%289168%3D4696%29%20THEN%209168%20ELSE%209168%2A%28SELECT%209168%20FROM%20INFORMATION_SCHEMA.CHARACTER_SETS%29%20END%29%29&Itemid=53 HTTP/1.1" 404 1417
+189.217.45.73 "GET /index.php?option=com_phocagallery&view=category&id=%28SELECT%20%28CASE%20WHEN%20%281753%3D1753%29%20THEN%201753%20ELSE%201753%2A%28SELECT%201753%20FROM%20INFORMATION_SCHEMA.CHARACTER_SETS%29%20END%29%29&Itemid=53 HTTP/1.1" 404 1417
+95.82.195.206 "POST //index.php/joomla-pages-ii/user-registration.html?task=registration.register HTTP/1.1" 404 1397
+
+Топ 5 пользователей по количеству запросов, которые завершились серверной (5ХХ) ошибкой:
+[ IP | число запросов ]
+189.217.45.73 - 225
+82.193.127.15 - 4
+91.210.145.36 - 3
+198.38.94.207 - 2
+195.133.48.198 - 2
