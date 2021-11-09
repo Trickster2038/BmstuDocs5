@@ -9,6 +9,10 @@ printf "\nЧисло запросов (по типу):\n" >> report.txt
 printf "[ тип | число запросов ]\n" >> report.txt
 awk '{if(length($6)<10)print $6}' access.log | cut -c 2- | sort |uniq -c | awk '{print $2 " - " $1}' >> report.txt
 
+printf "\nЧисло нестандартных запросов (по типу):\n" >> report.txt
+printf "[ тип | число запросов ]\n" >> report.txt
+awk '{if(length($6)>=10)print $6}' access.log | cut -c 2- | sort |uniq -c | awk '{print $2 " - " $1}' >> report.txt
+
 printf "\nТоп 10 самых частых запросов:\n" >> report.txt
 printf "[ число запросов | url ]\n" >> report.txt
 awk '{print $7}' access.log | sort | uniq -c | sort -nrk1 | head -10 >> report.txt
