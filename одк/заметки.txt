@@ -19,3 +19,5 @@ http://warden.unifree.ru/files/00x77/ebook/%D0%92%D0%B5%D0%B1-%D0%B4%D0%B8%D0%B7
 https://habr.com/ru/company/geekbrains/blog/277957/
 
 https://en.wikipedia.org/wiki/Web_design
+
+https://www.artlebedev.ru/everything/web/years/2000-2002/
