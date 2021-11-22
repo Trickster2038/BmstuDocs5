@@ -1,0 +1,3 @@
+DjangoProject [Электронный ресурс]. - URL: https://www.djangoproject.com/ (дата обращения: 25.09.2021).
+
+PostgreSQL 14.1 Documentation [Электронный ресурс]. - URL: https://www.postgresql.org/docs/14/index.html (дата обращения: 25.09.2021).
