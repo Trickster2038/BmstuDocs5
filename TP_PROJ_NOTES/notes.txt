@@ -1,0 +1,56 @@
+curl -X POST -H 'Content-Type: application/json' -d '{"id":5683}'  http://localhost:5000/vk_id/utils/create/Max
+curl http://localhost:5000/vk_id/Max
+
+===============================
+
+docker ps
+docker rm
+docker kill -f
+docker restart <container>
+sudo docker run --name pecona_docker -e MYSQL_ROOT_PASSWORD=pass -d percona
+docker exec -it percona_docker bash
+docker rm -f $(docker ps -a -q)
+
+================================
+
+sudo docker run --name mysql_docker -e MYSQL_ROOT_PASSWORD=qa_test -d mysql
+
+================================
+
+БД: test_db
+
+================================
+
+docker run -v /tmp/shared:/shared -p 8080:8080 --link percona_docker:percona --name app_docker myapp /app/myapp --config=/shared/config.config 
+
+================================
+
+percona_docker -> percona_container2
+app_docker
+mock_image -> mock_docker
+
+log:root
+pass:pass
+
+================================
+
+log: trickster
+pass: qwerty
+
+================================
+
+docker build -t mock_image .
+
+sudo docker run -v -d -p 5000:5000 --name mock_docker mock_image
+
+================================
+
+sudo docker run -v /tmp/shared:/shared -p 8080:8080 --link percona_docker:percona --link mock_docker:mock --name app_docker myapp /app/myapp --config=/shared/config.config 
+
+sudo docker run --name percona_container2 -p 8888:3306 -td percona_docker2
+
+================================
+
+docker rm -f $(docker ps -a -q)
+
+
