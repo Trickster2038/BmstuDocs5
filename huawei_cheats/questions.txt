@@ -1,0 +1,886 @@
+HCIA Datacom 
+
+[?] 59.Which of the following MAC addresses cannot be used as the MAC addresses of host network adapters?
+A. 00-02-03-04-05-06
++ B. 01-02-03-04-05-06
+C. 02-03-04-05-06-07
++ D. 03-04-05-06-07-08
+
+// IEEE - MAC 01-80-C2-xx-xx-xx (STP MULTICAST 8bit = 1, 7 - Local admininstrated addr)
+// MAC - 03, 04 Ethernet switching
+
+58、Which of the following statements regarding Designated Routers in OSPF are correct?
++ A. DR is elected by all the routers in the same network segment.
+B. If the priorities of two routers are different, the router with the lower priority will be elected as DR.
++ C. If the priorities of two routers are equal, the router with the higher Router ID will be elected as DR.
++ D. DR and BDR must be establish adjacency relationship.
+
+// OSPF = ^higher priotity, id (wihout 0?)
+// STP - v lower bridge, 0 - root
+// adjancy = DR + BDR 
+
+53.What are the advantages of using DHCP to allocate IP addresses?
+A. DHCP provides heavy workload and is difficult to manage.
++ B. DHCP can prevent IP address conflicts.
++ C. IP addresses can be reused.
++ D. If the configuration information changes, for example, the DNS server address changes, the administrator only needs to modify the configuration information on the DHCP server, facilitating unified management.
+
+@ 51. If an Ethernet data frame carries Length/Type 0x8100, which of the following cannot be the payload of the data frame?
++ A. RSTP data frame
++ B. STP data frame
+C. ARP response packet
+D. OSPF packet
+
+// https://litl-admin.ru/cisco/spanning-tree-protocol-per-vlan.html
+// STP and RSTP dont understand virtual networks
+
+50. The following configurations have been completed on the router R1. However, R1 cannot learn routes of other routers. Which of the following are the possible causes?
+[R1]osp
+[R1-ospf-1] area 1
+[R1-ospf-1-area-0.0.0.1]network 10.0.12.0 0.0.0.255
++ A. The area ID configured for R1 is different from that of the neighbor routers.
++ B. The authentication function is not enabled on R1, but is enabled on the neighbor routers.
+C. No OSPF process ID is configured on R1.
++ D. When OSPF is configured on R1, the network segments connected to neighbor routers are not advertised.
+
+49.Which of the following modes allow APs to obtain the system software package from an AC for upgrade?
++ A. AC mode
++ B. FTP mode
++ C. SFTP mode
+D. TFTP mode
+
+(?) 47. After an Eth-Trunk in LACP mode is created, devices on both ends send LACPDUs to elect the Actor. Which of the following parameters in LACPDUs determine the Actor election?
++ A. Device priority
++ B. MAC address
+C. Interface priority
+D. Interface number
+
+[?] 45. Which of the following are the features of the default VLAN setting in a switch configuration?
+- A. The default VLAN cannot be deleted manually.
++ B. By default, all ports on switches are member ports of a default VLAN.
++? C. A default VLAN must be created before a port is allocated to a VLAN.
+-? D. The IP address configured for a switch is applied only to a member port in the default VLAN.
+
+
+
+44. Refer to the following display interface command output on a device. Which of the following statements are true?
+Huavei>display interface GigabitEthernet 0/0/0 
+GigabitEthernet0/0/0 current state : UP
+Line protocol current state : UP
+Route Port, The Maximun Transnit Unit is 1000
+Internet Address is 10.0.12.2/24
+IP Sending Frames Format is PKTFMT_ETHNT_2, Hardvare address is 00e0-fc22-4fff
+Port Mode: FORCE cOPPER
+Speed: 100, Loopback: NONE
+Duplex: FULL, Negotiation: DISABLE
+Mdi : AUTO
+Last 300 seconds input rate 24 bits/sec, 0 packets/sec
+Last 300 seconds output rate 24 bits/sec, 0 packets/sec
+
++ A. The IP address of the interface is 10.0.12.2/24.
++ B. The working rate of the interface is 1Gbit/s.
++ C. The MTU of the interface is 1000 bytes.
++ D. The MAC address of the interface is 00E0-FC22-4FFF.
+
+42. Which of the following VRP commands can be used to enter area 0 view?
+A. [Huawei]ospf area 0
++ B. [Huawei-ospf-1]area 0
++ C. [Huawei-ospf-1]area 0.0.0.0
+D. [Huawei-ospf-1]area 0 enable
+
+41. Which of the following packets are OSPF packets?
++ A. HELLO
++ B. LSR
++ C. LSU
+- D. LSA 
+
+// LSAck - packet, LSA - tech/mechanism, not packet
+
+39. Which of the following statements is true about functions at the network layer of the OSI reference model?
+- A. Transmit bit streams between devices, and define the level, speed, and cable pins.
+- B. Provide connection-oriented or connectionless data transfer and error detection before retransmission.
++ C. Provide logical addresses for routers to determine paths.
+- D. Combine bits into bytes, combine bytes into frames, use the link-layer addresses (MAC addresses used by the Ethernet) to access the media, and perform error detection.
+- E. In the OSI reference model, the network layer is closest to users and provides network services for the application program.
+
+38. For an Eth-Trunk in LACP mode, what is the default LACP system priority of a Huawei switch?
+A. 4096
++ B. 32768
+C. 24576
+D. 36864
+
+37.Which of the following operations is performed immediately after a Fit AP obtains the AC's IP address?
+A. Apply for the configuration file.
++ B. Establish CAPWAP tunnels.
+C. Upgrade the system software.
+D. Download the configuration file.
+
+[?] 36、What are the characteristics of interface-based VLAN assignment?
+- A. When a host is moved, you do not need to reconfigure the VLAN to which the host belongs.
++ B. When a host is moved, you need to reconfigure the VLAN to which the host belongs.
+- C. VLAN tags are added to data frames based on IP addresses carried in data frames.
+- D. VLAN IDs are assigned based on the protocol type and encapsulation format of data frames.
+
+// https://www.examtopics.com/exams/huawei/h12-211/view/31/
+
+35.Which of the following OSPF versions is specific to IPv6?
+A. OSPFv1.
+B. OSPFv2.
++ C. OSPFv3.
+D. OSPFV4.
+
+32. Which of the following packets is used by an AP to proactively declare its SSID so that STAs can obtain the SSID of the WLAN?
+A. Probe
++ B. Beacon
+C. Join
+D. Discovery
+
+28. Which of the following methods is not supported by the Versatile Routing Platform (VRP) to configure a router?
++ A. Configure the router through FTP.
+B. Configure the router through the console port.
+C. Configure the router through Telnet.
+D. Configure the router through the mini USB port.
+
+27. Which of the following DHCP options needs to be configured on the DHCP server to allow Fit APs to obtain the IP address of an AC and establish CAPWAP tunnels?
+A. Option 55
++ B. Option 43
+C. Option 82
+D. Option 10
+
+[?] 25. A routing entry contains multiple fields. Which of the following statements about these fields is false?
+A. Proto: indicates the source of a route.
+B. Destination/Mask: indicates the address and mask length of the destination network or host.
+C. NextHop: indicates the address of the local interface corresponding to a route.
+D. Pre: indicates the preference value of a routing protocol.
+
+24. What of the following statements is correct regarding Access Control List types and ranges?
+A. A basic ACL value ranges from 1000-2999.
+B. An advanced ACL value ranges from 3000-4000.
++ C. A layer 2 ACL} value ranges from 4000-4999.
+D. An interface ACL value ranges 1000-2000.
+
+22. What is the default value of the Forward Delay timer of STP?
+A. 5 seconds
+B. 10 seconds
++ C. 15 seconds
+D. 20 seconds
+
+20. Which of the following statements is true after the ACL shown in the figure is configured on RTA?
+[RTA] acl 2001
+[RTA-acl-basic-2001]rule 20 permit source 20.1.1.0 0.0.0.255
+[RTA-acl-basic-2001] rule 10 deny source 20.1.1.0 0.0.0.255
+? A. Versatile Routing Platform (VRP) adjusts the sequence number of the first rule to 5 according to the configuration sequence.
+- B. VRP does not adjust the sequence numbers of rules, but first matches packets against the rule "permit source 20.1.1.0 0.0.0.255".
+- C. The configuration is incorrect because the sequence numbers of rules must be configured in ascending order.
++ D. VRP matches packets against the rule "deny source 20.1.1.0 0.0.0.255" first according to the rule sequence number.
+
+19.Which of the following statements does not correctly describe the effect of applying the ACL in the following figure to the SNMP process?
+#
+acl number 2000
+rule 5 permit source 192.168.1.2 0
+rule 10 permit source 192.168.1.3 0
+rule 15 permit source 192.168.1.4 0
+#
+A. The device with an IP address of 192.168.1.2 can use the SNMP service.
+B. The device with an IP address of 192.168.1.3 can use the SNMP service.
+C. The device with an IP address of 192.168.1.4 can use the SNMP service.
++ D. The device with an IP address of 192.168.1.5 can use the SNMP service.
+
+18. What is the TPID value defined by IEEE $802.1 Q$ ?
++ A. 0x8100
+B. 0x8200
+C. 0x9100
+D. 0x7200
+
+16. In which of the following states can an STP-enabled port transition to the Forwarding state directly?
+A. Blocking
+B. Disabled
+C. Listening
++ D. Learning
+
+[?] 15. How does an access port process data frames?
+A. The access port sends tagged packets.
+B. The access port replaces the VLAN tag of the data frames and then forwards them.
++? C. The access port removes the VLAN tag of the data frames and then forwards them.
+D. The access port adds the PVID to the data frames and then forwards them.
+
+14. The LACP priority is shown in the figure. Switch A and switch B adopt link aggregation in LACP mode, all interfaces are added to the link aggregation group (LAG), and the maximum number of active ports is set to 3. Which port of switch $A$ is not an active port?
+
+\     \0/0/3 pri:400------0/0/3 pri:400\     \
+\     \0/0/2 pri:300------0/0/2 pri:300\     \
+\     \0/0/1 pri:200------0/0/1 pri:200\     \
+\_____\0/0/0 pri:100------0/0/0 pri:100\_____\
+  SWA                                   SWB
+  Priority:32768                        Priority:65535
+
+A. G0/0/0
+B. G0/0/1
+C. G0/0/2
++ D. G0/0/3
+
+12. After a network administrator enables the traceroute function on a router, what is the value of the "Protocol" field in the IPv4 header of the data packet sent by the router?
++ A. 1
+B. 2
+C. 6
+D. 17
+
+//trecaert = ICMP = 1
+
+11.What is the main function of a dynamic routing protocol?
+A. Manage routers.
++ B. Generate a routing table.
+C. Generate an IP address.
+D. Control the status of router interfaces.
+
+10. You can run the "startup saved-configuration backup.cfg" command on the user interface of the Versatile Routing Platform (VRP) to specify the "backup.cfg" file as the configuration file for next startup.
++ True
+False
+
+9. SNMP packets are transmitted by UDP.
++ True
+False
+
+8. For STP, the Message Age in the configuration BPDUs sent by the root bridge is 0 .
++ True
+False
+
+7. In RSTP, an edge port becomes a common STP port after receiving a configuration BPDU.
++ True
+False
+
+(?) 6. The IP addresses of VLANIF interfaces on the same switch must be different.
++ True
+False
+
+5. The load balancing modes at both ends of an Eth-Trunk can be different.
++ True
+False
+
+3. In RSTP, a backup port can replace a faulty root port.
++ True
+False
+
+(?) 2. For the Versatile Routing Platform (VRP), the login timeout period can be set only on a VTY interface.
+True
++ False
+
+1. An Eth-Trunk interface can be used only as a Layer 2 interface.
+True
++ False
+
+(?) 60. By referring to the routing table of the router R1 shown in the figure, which of the following statements are true?
+display ip routing-table
+Route Flags: R - relay, D - dovnload to fib
+ 
+Routing Tables: Public 
+Destinations : 13   & Routes : 13 &  \\
+Destination/Mask    &    Proto    &    Pre    &    Cost    &    Flags   &    NextHop      &    Interface 
+0.0.0.0/0           &   Static    &    60     &     0      &     RD     &   10.0.14.4     & GigabitEtherneto/0/0 \\
+10.0.0.0 /8         &   Static    &    60     &     0      &     RD     &   10.0.12.2     & Etherneto/0/0 \\
+10.0.2.0 /24        &   Static    &    60     &     0      &     RD     &   10.0.13.3     & Etherneto/0/2 \\
+10.0.2.2 /32        &   OSPF      &    10     &     50     &     RD     &   10.0.21.2     & Etherneto/0/1
+
++ A. The router discards the data packets destined for 11.0.0.0 / 8
+- B. The router forwards the data packets destined for 12.0.0.0 / 8
++ C. The router forwards the data packets destined for 11.0.0.0 / 8 from GigabitEthernet0/0/0.
+- D. The router forwards the data packets destined for 12.0.0.0 / 8 from Ethernet 0/0/0.
+
+59. After receiving a Join Request packet from an AP during CAPWAP tunnel setup, an AC checks the validity of the AP. Which of the following authentication modes are supported by the AC?
++ A. MAC address authentication
++ B. SN authentication
++ C. No authentication
+D. Password authentication
+
+58. Which of the following are valid static route configurations?
++? A. ip route-static 129.1.0.0 16 serial 0/0/0
+B. ip route-static 10.0.0.2 16 129.1.0.0
++ C. ip route-static 129.1.0.0 16 10.0.0.2
++ D. ip route-static 129.1.0.0 255.255.0.0 10.0.0.2
+
+// B - we cannot route from host to net
+
+56. Typical network forwarding is based on routing tables. OpenFlow-capable switches forward packets based on flow tables. Which of the following statements correctly describe these two forwarding modes?
++ A. A routing table has fixed fields. A device has only one public routing table.
+- B. A flow table has fixed fields. A network device has only one flow table.
++ C. According to a routing table, packets will be forwarded using the route to the destination network segment and with the longest mask.
+-? D. According to a flow table, packets can be forwarded based on only the MAC address and IP address.
+
+// https://techhub.hpe.com/eginfolib/networking/docs/switches/5940/5200-1028b_openflow_cg/content/491966856.htm
+
+(?) 55. Which of the following statements correctly describe the control plane of a device?
++ A. The control plane implements interaction of routing protocols between devices.
+- B. The control plane instructs data forwarding.
+- C. The control plane provides the device monitoring capability.
++ D. The controller plane generates IP routing tables.
+
+// https://en.wikipedia.org/wiki/Control_plane
+
+54. Which of the following statements are true about the default route?
++ A. If the destination address of a packet does not match any entry in the routing table, the packet is forwarded through the default route.
++ B. In a routing table, the route to $0.0 .0 .0$ (with the mask being $0.0 .0 .0$ ) is the default route.
+- C. The routing table of any router must contain the default route.
+- D. The default route can only be manually configured by the administrator.
+
+53. Segment routing (SR) can be used to define an explicit path. Nodes on a network only need to maintain SR information to deal with the real-time and rapid development of services. What are the characteristics of SR?
+A. SR supports smooth evolution of the existing network by extending existing protocols (such as IGPs).
+B. SR supports both the controller's centralized control mode and forwarders' distributed control mode, providing a balance between the two modes.
+C. SR uses the source routing technology to support fast interaction between the network layer and upper-layer applications.
+D. SR uses IP forwarding, and routers do not need to maintain another label forwarding table.
+
+52. Refer to the following display ip routing-table command output on the router R1. Which of the following statements are true?
+display ip routing-table
+Route Flags: $R$ - relay, $D$ - domload to f1b
+Routing Tables: Public
+Destinations : 10 \quad$ Routes : 10
+Destination/Mask     Proto    Pre  Cost   Flags      NextHop     Interface
+10.0.0.0 / 8         Static    60   0      RD      10.0 .12 .2  Ethernet 0/0/0
+10.0.2.2 /32         Static    70   0      RD      10.0 .21 .2  Ethernet 0/0/1
+A. The next hop of the route from R1 to 10.0.0.1 is 10.0.12.2.
+B. The next hop of the route from R1 to 10.0.0.1 is 10.0.21.2.
+C. The next hop of the route from R1 to 10.0.2.2 is 10.0.12.2.
+D. The next hop of the route from R1 to 10.0.2.2 is 10.0.21.2.
+
+# TRUE/FALSE
+(<TF>)
+1.	(<TF>) FTP is a file transfer protocol and works in active or passive mode.
+A.	True 
+B.	False
+*---------------------------------------------------------------------------------------*
+2.	(<TF>) In the WLAN network architecture, ACs can be connected in in-path or off-path mode.
+A.	True 
+B.	False
+*---------------------------------------------------------------------------------------*
+3.	(<TF>) In STP, a non-root-bridge switch can have two root ports.
+A.	True
+B.	False 
+*---------------------------------------------------------------------------------------*
+4.	(<TF>) TFTP uses TCP to transfer files, and the default server port number is 21.
+A.	True
+B.	False 
+*---------------------------------------------------------------------------------------*
+5.	(<TF>) SNMP is a standards-based network management protocol widely used on TCP/IP networks. It provides a method for managing NEs through a central computer that runs network management software, that is, a network management station (NMS). An SNMP NMS and SNMP agent communicate with each other through the TCP protocol.
+A.	True
+B.	False 
+*---------------------------------------------------------------------------------------*
+6.	(<TF>) Software-defined networking (SDN) is a new type of network architecture originally proposed by the Clean Slate research team at Stanford University. SDN has three characteristics: forwarding-control separation, centralized control, and open programmable interfaces.
+A.	True 
+B.	False
+*---------------------------------------------------------------------------------------*
+7.	(<TF>) The PVID of a trunk port on a switch may not be the ID of a VLAN that is allowed for the port.
+A.	True 
+B.	False
+*---------------------------------------------------------------------------------------*
+8.	(<TF>) A CAPWAP tunnel is established between the Fit AP and AC to transmit management traffic and service data traffic.
+A.	True
+B.	False 
+*---------------------------------------------------------------------------------------*
+9.	(<TF>) During IP packet forwarding, the last-hop router forwards packets using the direct route.
+A.	True 
+B.	False
+*---------------------------------------------------------------------------------------*
+10.	(<TF>) After receiving a tagged frame from the peer device, an access port of a switch checks the VLAN ID of the frame. If the VLAN ID is the same as PVID of this port, the port accepts the frame and removes the tag from the frame.
+A.	True
+B.	False 
+*---------------------------------------------------------------------------------------*
+11.	(<TF>) A blackhole route (or null route) can prevent routing loops.
+A.	True 
+B.	False
+*---------------------------------------------------------------------------------------*
+12.	(<TF>) To prevent out-of-order packets, it is recommended that Eth-Trunk use flow-based load balancing.
+A.	True 
+B.	False
+*---------------------------------------------------------------------------------------*
+13.	(<TF>) AAA is short for authentication, authorization, and application.
+A.	True
+B.	False 
+*---------------------------------------------------------------------------------------*
+14.	(<TF>) FTP is a file transfer protocol and works in active or passive mode.
+A.	True 
+B.	False
+*---------------------------------------------------------------------------------------*
+15.	(<TF>) After receiving a tagged frame from the peer device, an access port of a switch checks the VLAN ID of the frame. If the VLAN ID is the same as PVID of this port, the port accepts the frame and removes the tag from the frame.
+A.	True
+B.	False 
+*---------------------------------------------------------------------------------------*
+16.	(<TF>) Segment routing (SR) provides an innovative traffic steering method. It divides a network path into segments and allocates segment IDs (SIDs) to these segments. The segments and nodes are sequentially arranged into a segment list to form a forwarding path.
+A.	True 
+B.	False
+*---------------------------------------------------------------------------------------*
+17.	(<TF>) A hybrid port on a switch can connect to either a user host or a port on another switch.
+A.	True 
+B.	False
+*---------------------------------------------------------------------------------------*
+18.	(<TF>) Before sending an IPv6 packet, an interface performs the following operations in this order: address configuration, address resolution, and duplicate address detection (DAD).
+A.	True
+B.	False 
+*---------------------------------------------------------------------------------------*
+19.	(<TF>) Switches can implement communication between homogeneous networks or communication between heterogeneous networks and isolate broadcast domains.
+A.	True
+B.	False 
+*---------------------------------------------------------------------------------------*
+20. (<TF>)Python is a language that can invoke code written in other languages.
+A.	True 
+B.	False
+*---------------------------------------------------------------------------------------*
+21. (<TF>)By default, local authentication is used in the default AAA domain.
+A.	True 
+B.	False
+*---------------------------------------------------------------------------------------*
+22. (<TF>)Both Java and Python are interpreted languages.
+A.	True 
+B.	False
+*---------------------------------------------------------------------------------------*
+23. (<TF>)You can run the display ospf lsdb command to view the LSDB of a router. The LSDBs of all OSPF-enabled routers on a network are the same.
+A.	True 
+B.	False
+*---------------------------------------------------------------------------------------*
+24. (<TF>)Users can configure IP addresses for terminals connected to a WLAN.
+A.	True
+B.	False 
+*---------------------------------------------------------------------------------------*
+25. (<TF>)When you configure an ACL, the rule increment is 5 by default, and this cannot be changed.
+A.	True
+B.	False 
+
+*---------------------------------------------------------------------------------------*
+26. (<TF>)To improve code modularization and utilization, the keyword class is defined.
+A.	True 
+B.	False
+
+*---------------------------------------------------------------------------------------*
+27. (<TF>)C/C++ is a compiled high-level programming language.
+A.	True 
+B.	False
+
+*---------------------------------------------------------------------------------------*
+28. (<TF>)An OpenFlow switch forwards packets based on the flow table and matches only the destination MAC address and destination IP address in the packets.
+A.	True
+B.	False 
+
+*---------------------------------------------------------------------------------------*
+29. (<TF>)iStack and CSS provide the same functions, despite their different names and implementation mechanisms.
+A.	True 
+B.	False
+
+*---------------------------------------------------------------------------------------*
+6. (<TF>)In the SDN architecture, the interface for communication between the controller and SDN-ready switch is a southbound interface.
+A.	True 
+B.	False
+
+*---------------------------------------------------------------------------------------*
+7. (<TF>)The IP address 10.0.10.63 and mask 255.255.255.224 indicate a broadcast address.
+A.	True 
+B.	False
+
+*---------------------------------------------------------------------------------------*
+8. (<TF>)An SDN network is characterized by centralized control, forwarding-control separation, and open interfaces.
+A.	True 
+B.	False
+
+*---------------------------------------------------------------------------------------*
+8. (<TF>) MPLS is often used on IP backbone networks. Forwarding equivalence class (FEC) is a term used in MPLS to describe a collection of packets with the same characteristics.
+A.	True 
+B.	False
+
+*---------------------------------------------------------------------------------------*
+8. (<TF>)A router learns routes to the same destination network through different protocols. When the routes comply with the longest match rule and are assigned the same preference value, the router compares the metrics of these routes to determine the optimal route.
+A.	True
+B.	False 
+
+*---------------------------------------------------------------------------------------*
+8. (<TF>)In asynchronous transmission, data is transmitted byte by byte. Therefore, it is less efficient than synchronous transmission.
+A.	True 
+B.	False
+
+*---------------------------------------------------------------------------------------*
+8. (<TF>)OSPF defines two types of multi-access networks: Non-Broadcast Multiple Access network and Point-to-Multipoint network.
+A.	True 
+B.	False
+
+*---------------------------------------------------------------------------------------*
+8. (<TF>)Equal-cost routes are routes to the same destination network that have the same mask, preference, and metric.
+A.	True 
+B.	False
+
+*---------------------------------------------------------------------------------------*
+8. (<TF>)When a switch performs the flooding operation, it forwards a frame out through all ports except the one through which the frame was received.
+A.	True 
+B.	False
+
+*---------------------------------------------------------------------------------------*
+8. (<TF>)SNMP is a standards-based network management protocol widely used on TCP/IP networks. It provides a method for managing network elements through a central computer that runs network management software - known as a network management station (NMS). An SNMP NMS and SNMP agent communicate with each other through UDP.
+A.	True 
+B.	False
+
+*---------------------------------------------------------------------------------------*
+8. (<TF>)An IPv6 packet consists of three parts: an IPv6 basic header, one or more IPv6 extension headers, and an upper-layer protocol data unit (PDU).
+A.	True 
+B.	False
+
+*---------------------------------------------------------------------------------------*
+8. (<TF>)Before sending an IPv6 packet out, an interface performs the following operations in this order: address configuration, address resolution, and duplicate address detection (DAD).
+A.	True
+B.	False 
+
+*---------------------------------------------------------------------------------------*
+8. (<TF>)The address segment FF02::1 indicates all routers within the link-local scope.
+A.	True
+B.	False 
+
+*---------------------------------------------------------------------------------------*
+8. (<TF>)If no OSPFv3 router ID is configured, the system selects a router ID using rules similar to those used in OSPFv2.
+A.	True
+B.	False 
+
+*---------------------------------------------------------------------------------------*
+8. (<TF>)If a router fails to find a specific route matching the destination address of a data packet and no default route is available, the router discards the packet.
+A.	True 
+B.	False
+
+*---------------------------------------------------------------------------------------*
+8. (<TF>)DHCPv6 devices are identified by DUIDs, and each DHCPv6 server or client can have only one DUID.
+A.	True 
+B.	False
+
+*---------------------------------------------------------------------------------------*
+8. (<TF>)Tracert is a typical application of ICMP.
+A.	True 
+B.	False
+
+*---------------------------------------------------------------------------------------*
+8. (<TF>)The OSPFv2 router ID can be automatically configured, whereas the OSPFv3 router ID must be manually configured.
+A.	True 
+B.	False
+
+*---------------------------------------------------------------------------------------*
+8. (<TF>)A router learns routes to the same destination network through different protocols. When the routes comply with the longest match rule and are assigned the same preference value, the router compares the metrics of these routes to determine the optimal route.
+A.	True
+B.	False 
+
+*---------------------------------------------------------------------------------------*
+8. (<TF>)Each interface of a router is in an independent broadcast domain.
+A.	True 
+B.	False
+
+*---------------------------------------------------------------------------------------*
+8. (<TF>)SNMP is a standards-based network management protocol widely used on TCP/IP networks. It provides a method for managing network elements through a central computer that runs network management software - known as a network management station (NMS). An SNMP NMS and SNMP agent communicate with each other through UDP.
+A.	True 
+B.	False
+
+*---------------------------------------------------------------------------------------*
+8. (<TF>)OSPF defines two types of multi-access networks: Non-Broadcast Multiple Access network and Point-to-Multipoint network.
+A.	True 
+B.	False
+
+*---------------------------------------------------------------------------------------*
+8. (<TF>)The MAC address table of a switch stores mappings between the destination MAC addresses of frames and ports.
+A.	True
+B.	False 
+
+*---------------------------------------------------------------------------------------*
+8. (<TF>)After receiving a data frame from any port, a hub forwards it to any other port.	
+A.	True 
+B.	False
+
+*---------------------------------------------------------------------------------------*
+8. (<TF>)In data communications, the data format must be determined and agreed by the information creator and the information receiver before the data is transmitted.
+A.	True 
+B.	False
+
+*---------------------------------------------------------------------------------------*
+8. (<TF>)The bus and star topologies, which are frequently used in a LAN, refer to the physical connection types rather than the logical structure of the network.	
+A.	True
+B.	False 
+
+*---------------------------------------------------------------------------------------*
+8. (<TF>)Regardless of multicast or unicast, an L2 switch establishes its MAC address table entries by means of MAC address learning.	
+A.	True
+B.	False 
+
+44.	(<SA>)The Point-to-Point Protocol (PPP) is a common data link layer protocol for wide area networks (WANs). Which of the following statements about PPP is false?
+A.	The establishment of a PPP link goes through three phases: link layer negotiation, network layer negotiation, and authentication. 
+B.	PPP uses the Link Control Protocol (LCP) to negotiate link control layer parameters.
+C.	If PPP uses password authentication mode, negotiation packets are transmitted in plain text, which is insecure.
+D.	PPP supports the Password Authentication Protocol (PAP) and Challenge Handshake Authentication Protocol (CHAP).
+
+*---------------------------------------------------------------------------------------*
+45.	(<SA>)OSPF has multiple types of protocol packets. These packets play different roles in the interaction between OSPF routers. Which of the following packets describes summary information about the local LSDB and is used to synchronize the LSDBs of two routers?
+A.	DD packet 
+B.	Hello packet
+C.	LSU packet
+D.	LSR packet
+
+*---------------------------------------------------------------------------------------*
+46.	(<SA>)The process for an AP to go online is as follows: The AP sends a Join Request packet to an AC, which then authenticates the AP after receiving the packet. The AP gets managed after being successfully authenticated. Which of the following AP authentication methods is not supported by an AC?
+A.	Password authentication 
+B.	MAC address authentication
+C.	Serial number authentication
+D.	Non-authentication
+
+*---------------------------------------------------------------------------------------*
+47.	(<SA>)Which of the following statements is false about Control and Provisioning of Wireless Access Points (CAPWAP)?
+A.	CAPWAP is used to maintain the connectivity between APs and an AC.
+B.	When tunnel forwarding is used, an AP exchanges data with an AC through a CAPWAP tunnel.
+C.	CAPWAP is an application layer protocol based on TCP. 
+D.	CAPWAP transmits two types of messages at the transport layer: service data traffic and management traffic.
+
+*---------------------------------------------------------------------------------------*
+48.	(<SA>)Which of the following statements about STP and RSTP is false?
+A.	There are three RSTP port states: Forwarding, Learning, and Blocking. 
+B.	There are five STP port states: Forwarding, Learning, Listening, Blocking, and Disabled.
+C.	RSTP converges faster than STP.
+D.	RSTP is backward compatible with STP.
+
+*---------------------------------------------------------------------------------------*
+49.	(<SA>)Which of the following statements is true about APs in WLAN networking?
+A.	Typically, APs use PoE power to facilitate deployment. 
+B.	An AC must be deployed in WLAN networks.
+C.	Fat APs need to work with an AC and are managed and configured by the AC in a unified manner.
+D.	Fit APs can independently implement functions such as wireless user access, service data encryption, and service data packet forwarding.
+
+*---------------------------------------------------------------------------------------*
+50.	(<SA>)Dynamic routing protocols can be classified into Interior Gateway Protocol (IGP) and Exterior Gateway Protocol (EGP) according to their working area. Which of the following protocols is an EGP?
+A.	BGP 
+B.	RIP
+C.	IS-IS
+D.	OSPF
+
+*---------------------------------------------------------------------------------------*
+51.	(<SA>)If the PVID of a trunk port on a switch is 10 and the “port trunk allow-pass vlan 7 9” command is configured on the port, which of the following statements is true?
+A.	Data frames of VLANs 7,8, and 9 can be transmitted on a trunk link.
+B.	Data frames of VLANs $1,7,8$, and 9 can be transmitted on a trunk link.
+C.	Data frames of VLANs 1,7, and 9 can be transmitted on a trunk link. 
+D.	Data frames of VLANs $7,8,9$, and 10 can be transmitted on a trunk link.
+
+*---------------------------------------------------------------------------------------*
+52.	(<SA>)The Network Configuration Protocol (NETCONF) provides a mechanism for managing network devices. Which of the following statements about NETCONF is false?
+
+A.	Yet Another Next Generation (YANG) is a data modeling language that standardizes NETCONF data content.
+B.	If YANG files are not integrated into a device, the device does not support NETCONF.
+C.	NETCONF messages are formatted using either JSON or XML. 
+D.	NETCONF supports trial runs and rollback in case of errors.
+
+*---------------------------------------------------------------------------------------*
+53.	(<SA>)The MAC address table of a switch is as follows:
+00-01-02-03-04-AA G0/0/1
+00-01-02-03-04-CC G0/0/3
+A data frame with the destination MAC address 00-01-02-03-04-BB is received on G0/0/1, and another data frame with the destination MAC address 00-01-02-03-04-CC is received on G0/0/3. How does the switch process the two data frames?
+
+A.	Forwards the first frame and floods the second frame.
+B.	Forwards the first frame and discards the second frame.
+C.	Floods the first frame and discards the second frame. 
+D.	Floods the first frame and forwards the second frame.
+ 
+*---------------------------------------------------------------------------------------*
+54.	(<SA>)When a ping command is run on a network device to check the network connectivity, which type of packet will be sent by the network device?
+A.	TCP
+B.	IGMP
+C.	UDP
+D.	ICMP 
+
+*---------------------------------------------------------------------------------------*
+55.	(<SA>)Refer to the following configuration on a switch:
+[huawei]vlan batch 2 to 9 10 
+Which of the following statements is true about this command?
+
+A.	VLANs 2 through 910 will be created on the switch.
+B.	VLANs 2 to 10 will be created on the switch. 
+C.	The command is incorrect. As a result, the VRP will report an error when this command is run.
+D.	VLANs 2,9 , and 10 will be created on the switch.
+
+*---------------------------------------------------------------------------------------*
+56.	(<SA>)SPF has multiple types of protocol packets. These packets play different roles in the interaction between OSPF routers. Which of the following packets describes summary information about the local LSDB and is used to synchronize the LSDBs of two routers?
+
+A.	Hello packet
+B.	LSU packet
+C.	LSR packet
+D.	DD packet 
+
+*---------------------------------------------------------------------------------------* 
+57.	(<SA>)As shown in the following networking, the interfaces connecting R1,R2,R3, and R4 are running OSPF, and are all in area0. On R1, a static route to the network segment 10.1.34.0/24 is configured using the “ip route-static 10.1.34.0 24 10.1.13.32” command. Which of the following statements is true?
+A.	The routing table of R1 contains only the OSPF route to the network segment 10.1.34.0/24, and the next hop of the route is 10.1.13.32. 
+B.	The routing table of R1 contains the OSPF route to the network segment 10.1.34.0/24, and the next hop of the route is 10.1.12.21.
+C.	The routing table of R1 contains both the static route and OSPF route to the network segment 10.1.34.0/24.
+D.	The routing table of R1 contains only the static route to the network segment 10.1.34.0/24.
+
+*---------------------------------------------------------------------------------------*
+58.	(<SA>)NTP is a network protocol used to synchronize computer clocks with an NTP server. Which of the following statements about NTP is false?
+A.	The stratum indicates the hierarchy for clock synchronization. The value 1 indicates the highest clock precision.
+B.	The master time server directly synchronizes with the standard reference clock through cables or radio signals.
+C.	NTP packets are transmitted through UDP.
+D.	NTP is a network layer protocol in the TCP/IP protocol suite. 
+
+*---------------------------------------------------------------------------------------*
+59.	(<SA>)In which of the following modes are DHCP Discover messages sent?
+A.	Unicast
+B.	Anycast
+C.	Broadcast 
+D.	Multicast
+
+*---------------------------------------------------------------------------------------*
+60.	(<SA>)Which of the following states indicates that the neighbor relationship is stable between OSPF-enabled DR-other routers on a broadcast network?
+A.	Full
+B.	Loading
+C.	Down
+D.	Two-way 
+
+*---------------------------------------------------------------------------------------*
+61.	(<SA>)Which of the following packet types is used by OSPF to maintain neighbor relationships?
+A.	LSU
+B.	Hello 
+C.	DD
+D.	LSR
+
+*---------------------------------------------------------------------------------------*
+62.	(<SA>)What is the valid VLAN ID range?
+A.	0 to 4095
+B.	0 to 4094
+C.	1 to 4094 
+D.	1 to 4095
+
+*---------------------------------------------------------------------------------------*
+63.	(<SA>)The Versatile Routing Platform (VRP) uses the file system to manage files and directories on a device. Which of the following commands can be used to check the current directory of a device?
+A.	display dir
+B.	dir
+C.	Is
+D.	Pwd 
+
+*---------------------------------------------------------------------------------------*
+64.	(<SA>)A router has the following four specific routes:
+ip route-static 10.1.20.0 24 12.1.1.2
+ip route-static 10.1.21.0 24 12.1.1.2
+ip route-static 10.1.22.0 24 12.1.1.2
+ip route-static 10.1.23.0 24 12.1.1.2
+To summarize these specific routes which of the following commands should be run?
+
+A.	ip route-static 10.1.20.0 23 12.1.1.2
+B.	ip route-static 10.1.16.0 21 12.1.1.2
+C.	ip route-static 10.1.20.0 22 12.1.1.2 
+D.	ip route-static 10.1.0.0 16 12.1.1.2
+
+*---------------------------------------------------------------------------------------*
+65.	(<SA>)Various profiles are designed to facilitate the configuration and maintenance of WLAN functions and features. Which of the following statements about these profiles is false?
+
+A.	Radio profiles are used to optimize radio parameters and control the in-service channel switching function.
+B.	Regulatory domain profiles provide configurations of the country code, calibration channel set, and calibration bandwidth for APs.
+C.	Only security profiles and SSID profiles can be bound to VAP profiles. 
+D.	VAP profiles provide differentiated WLAN services for users.
+
+*---------------------------------------------------------------------------------------*
+66.	(<SA>)Which of the following lists the correct protocol layers of the TCP/IP reference model from bottom to top?
+
+A.	Application layer, presentation layer, session layer, transport layer, network layer, data link layer, and physical layer
+B.	Physical layer, data link layer, network layer, transport layer, session layer, presentation layer, and application layer
+C.	Application layer, transport layer, network layer, data link layer, physical layer
+D.	Physical layer, data link layer, network layer, transport layer, application layer 
+
+*---------------------------------------------------------------------------------------*
+67.	(<SA>)A WLAN is constructed using wireless technologies. Which of the following statements about the WLAN networking is false?
+
+A.	The service set identifier (SSID) identifies a wireless network and is represented using a character string.
+B.	A basic service set (BSS) indicates an area covered by an AP.
+C.	A virtual access point (VAP) is a service entity virtualized on an AP. All VAPs virtualized on the same AP has the same BSSID. 
+D.	The basic service set identifier (BSSID) identifies a wireless network and is represented using the MAC address of an AP.
+
+*---------------------------------------------------------------------------------------*
+68.	(<SA>)OSPF authentication enables a device to encrypt OSPF packets by adding an authentication field to the packets, ensuring network security. Which of the following statements about OSPF authentication is false?
+A.	OSPF authentication is classified into area authentication and interface authentication.
+B.	The authentication modes of two OSPF neighbors must be the same, that is, both of them either use interface authentication or use area authentication. 
+C.	Interface authentication is configured in the interface view and applies to all the packets received on the interface.
+D.	Area authentication applies to the packets received on all the interfaces in a specific area.
+
+*---------------------------------------------------------------------------------------*
+69.	(<SA>)The Domain Name System (DNS) protocol is used to resolve domain names to IP addresses. Which of the following statements about DNS is false?
+
+A.	A DNS server maintains the database that stores the mappings between domain names and IP addresses and responds to the requests from the resolver.
+B.	DNS supports traversal query. 
+C.	DNS supports recursive query.
+D.	A domain name can be used to identify a host.
+
+*---------------------------------------------------------------------------------------*
+70.	(<SA>)Which of the following statements about Fit AP+AC networking is true?
+
+A.	After a CAPWAP tunnel is established between the AC and Fit AP, keepalive packets are used to detect the status of the CAPWAP tunnel.
+B.	A data tunnel and a control tunnel will be established between the AC and Fit AP. 
+C.	The tunnel forwarding mode can reduce the forwarding pressure on the AC.
+D.	The AP version can be upgraded through HTTP.
+
+*---------------------------------------------------------------------------------------*
+71.	(<SA>)Which of the following commands can be used to check OSPF LSDB information on a Huawei device?
+A.	display ospf routing
+B.	display ospf Isdb 
+C.	display ospf brief
+D.	display ospf peer
+
+*---------------------------------------------------------------------------------------*
+72.	(<SA>)Network Address Translation (NAT) translates the IP address in an IP packet header into another IP address. Which of the following is not an advantage of NAT?
+
+A.	Alleviating the exhaustion of IP addresses
+B.	Allowing the access of intranet hosts to external networks and the access of external hosts to intranets, and enabling communication between intranets and external networks
+C.	Implementing accurate identification and control of packet flows on networks to control network access behavior, prevent network attacks, and improve network bandwidth efficiency 
+D.	Effectively preventing attacks from external networks and greatly improving network security
+
+*---------------------------------------------------------------------------------------*
+73.	(<SA>)Which of the following is not a valid port role in RSTP?
+
+A.	Forwarding port 
+B.	Root port
+C.	Backup port
+D.	Designated port
+
+*---------------------------------------------------------------------------------------*
+74.	(<SA>)The Point-to-Point Protocol (PPP) is a common data link layer protocol for wide area networks (WANs). Which of the following statements about PPP is false?
+
+A.	The establishment of a PPP link goes through three phases: link layer negotiation, network layer negotiation, and authentication. 
+B.	PPP uses the Link Control Protocol (LCP) to negotiate link control layer parameters.
+C.	PPP supports the Password Authentication Protocol (PAP) and Challenge-Handshake Authentication Protocol (CHAP).
+D.	If PPP uses password authentication mode, negotiation packets are transmitted in plain text, which is insecure.
+
+*---------------------------------------------------------------------------------------*
+75.	(<SA>)The following shows the routing table of a specific router:
+
+Destination/Mask  Proto  Pre   Cost Flags     NextHop      Interface 
+172.16.1.0/24     OSPF   10    200    D     192.168.1.2     GigabitEthernet0/0/0 
+172.16.0.0/16    Static  5      0     RD    192.168.1.2     GigabitEthernet0/0/0 
+172.16.1.0/22    Static  80     0     RD    192.168.1.2     GigabitEthernet0/0/0 
+When data needs to be sent to the destination 172.16.1.1 through this router, which of the following routes is used?
+
+A.	OSPF route 172.16.1.0/24 with a preference of 10 and cost of 200 
+B.	Both static routes because their cost values are the same
+C.	Static route 172.16.1.0/22 with a preference of 80 and cost of 0
+D.	Static route 172.16.0.0/16 with a preference of 5 and cost of 0
+
+*---------------------------------------------------------------------------------------*
+76.	(<SA>)Which is the most widely used VLAN assignment method?
+A.	MAC address-based VLAN assignment
+B.	Protocol-based VLAN assignment
+C.	IP subnet-based VLAN assignment
+D.	Interface-based VLAN assignment 
+
+*---------------------------------------------------------------------------------------*
+77.	(<SA>)Mastering the basic operations of the file system is crucial for network engineers to efficiently manage the configuration files and VRP system files of devices. Which of the following statements is true about these files?
+A.	System software is mandatory for device startup and running. The common file name extension is .cfg.
+B.	A configuration file stores configuration commands. The common file name extension is .cc.
+C.	A patch file is a type of software compatible with the system software. The common file name extension is .zip.
+D.	A PATH file effectively controls product features and resources. The common file name extension is .bin. 
+
+*---------------------------------------------------------------------------------------*
+78. In STP mode, if the root port of a non-root bridge is shut down, which of the following statements is true?
+A. The switch will immediately delete the entire MAC address table.
+B. The switch will immediately send updated configuration BPDUs from a specified port.
+C. The switch will immediately send TCN packets.
+D. The switch will immediately send TC packets.
+
+*---------------------------------------------------------------------------------------*
+79. Which of the following statements about ARP packet sending is true?
+A. The destination MAC address of ARP Request packets sent from a host is a unicast MAC address.
+B. The destination IP address of ARP Request packets sent from a host is a broadcast IP address.
+C. The destination MAC address of ARP Reply packets sent from a host is a unicast MAC address.
+D. The destination MAC address of ARP Reply packets sent from a host is a broadcast MAC address.
+
+*---------------------------------------------------------------------------------------*
+80. Which of the following statements is true when switches are used on the Ethernet?
+A. Broadcast domains are increased but reduce broadcasts.
+B. Broadcast domains and broadcasts are both increased.
+C. Collision domains are increased but collisions are reduced.
+D. Collision domains and collisions are both increased.
