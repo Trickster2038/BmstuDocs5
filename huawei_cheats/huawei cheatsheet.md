@@ -6,6 +6,9 @@ Take me to [pookie](#pookie)
 
 # OTHER
 
+- **Switch FLOODS (not discards) if MAC not found **
+- **Switch discards if next port MAC = Source MAC**
+
 MTU - Maximal transit unit (for interface)
 
 - **Switch = isolate collision domains, join 1 broadcast domain**
@@ -15,12 +18,30 @@ Control plane: provides functions such as protocol processing, service processin
 
 forwarding equivalence class (FEC) is a term used in Multiprotocol Label Switching (MPLS) to describe a set of packets with similar or identical characteristics which may be forwarded the same way
 
+>File extensions:
+>
+>cc - system softaware
+>
+>cfg, dat, zip - config
+>
+>pat - patch
+>
+>bin - PAF (features and resources)
+
 > 44.	(<SA>)The Point-to-Point Protocol (PPP) is a common data link layer protocol for wide area networks (WANs). Which of the following statements about PPP is false?
-> + A.	The establishment of a PPP link goes through three phases: link layer negotiation, network layer negotiation, and authentication. 
+> + (FALSE) A.	The establishment of a PPP link goes through three phases: link layer negotiation, network layer negotiation, and authentication. 
 > + B.	PPP uses the Link Control Protocol (LCP) to negotiate link control layer parameters.
 > - C.	If PPP uses password authentication mode, negotiation packets are transmitted in plain text, which is insecure.
 >
 > + D.	PPP supports the Password Authentication Protocol (PAP) and Challenge Handshake Authentication Protocol (CHAP).
+
+> (?) 52.	(<SA>)The Network Configuration Protocol (NETCONF) provides a mechanism for managing network devices. Which of the following statements about NETCONF is false?
+>
+> - A.	Yet Another Next Generation (YANG) is a data modeling language that standardizes NETCONF data content.
+>
+> - (FALSE) B.	If YANG files are not integrated into a device, the device does not support NETCONF.
+> - C.	NETCONF messages are formatted using either JSON or XML. 
+> - D.	NETCONF supports trial runs and rollback in case of errors.
 
 In asynchronous transmission, data is transmitted byte by byte. Therefore, it is less efficient than synchronous transmission.
 
@@ -38,7 +59,7 @@ FTP kinds: active, passive
 
 Blackhole route / null route - key from routing loops
 
-traceroute - ICMP 
+traceroute, ping - ICMP 
 
 > Routes: direct (link layer protos), static (handmade), dynamic (ospf, is-is, etc.)
 
@@ -60,11 +81,15 @@ Message Age of STP root conf msg = 0
 
 RSTP = STP after conf BDPU
 
-> TODO: 4096 step where?,CAPWAP TOPOS + DHCP, ip classes, hybrid port, STP ports and ID, eth2+1q frames, wifi standarts and default channels, ospf cost formulas, ospf statuses
+> TODO: 4096 step where?,CAPWAP TOPOS + DHCP, ip classes, hybrid port, STP ports and ID, eth2+1q frames, wifi standarts and default channels, ospf cost formulas, ospf statuses, STP
 >
 > 
 >
 > blackhole null route, SDN, OpenFlow
+
+![dynamic routing](./media/dynamic_routing.PNG)
+
+![route pick](./media/route_pick.PNG)
 
 <a name="pookie">gg</a>
 
@@ -73,6 +98,8 @@ RSTP = STP after conf BDPU
 ![osi](./media/osi.PNG)
 
 ![osi_proto](./media/osi_proto.jpg)
+
+![tcp/ip stack by huawei](./media/huawei_tcpip.PNG)
 
 # MAC 
 
@@ -84,6 +111,8 @@ IEEE - MAC 01-80-C2-xx-xx-xx (STP MULTICAST 8bit = 1, 7 - Local administrated ad
 
 32 bits (24 mask as default)
 
+> Types: Unicast, Multicast, Broadcast
+
 OSPFv2
 
 ![ipv4 multi](./media/ipv4_multicast.PNG)
@@ -94,6 +123,8 @@ Multicast addresses: https://support.huawei.com/enterprise/en/doc/EDOC1000177796
 
 128 bits
 
+> Types: Unicast, Multicast, Anycast
+
 ospf v3
 
 MULTICAST starts with FF
@@ -103,6 +134,8 @@ MULTICAST starts with FF
 > - address configuration 
 > - duplicate address detection (DAD)
 > - address resolution
+
+![ipv6 prefixes](./media/ipv6_prefix.PNG)
 
 An IPv6 packet has three parts: an IPv6 basic header, one or more IPv6 extension headers, and an upper-layer protocol data unit (PDU). An upper-layer PDU is composed of the upper-layer protocol header and its payload, which maybe an ICMPv6 packet, a TCP packet, or a UDP packet.
 
@@ -130,6 +163,11 @@ fields: priority, router ID[no 0?] (**HIGHER** is best)
 
 **LSDB is same on DR and BDR (not DRO)**
 
+> Authentification
+>
+> - area
+> - interface
+
 > display ospf lsdb 
 
 **IPv6** - OSPFv3
@@ -148,13 +186,13 @@ Area 0 - backbone
 
 adjaency(full) DR/BDR + all > neighbour (2way) DRO+DRO
 
-> Statuses: 
-
 types: broadcast, nbma, p2mp, p2p
 
 packets: Hello, DD, LSR, LSU, LSAack (LSA - not packet - link state advertise)
 
 ![packets types ](./media/ospf_packets.PNG)
+
+![ospf states](./media/ospf_states.PNG)
 
 # DHCP
 
@@ -168,6 +206,8 @@ Packets (in time order): Discover-broadcast, offer-unicast, request-broadcast, a
 
 # VLAN (802.q1)
 
+ID from 1 to 4095 (cisco)
+
 **TPID** tag 0x8100 in TAG-ID .1q-frame (not Eth) **4 bytes tag**
 
 > PVID - port vlan id, Vlan_ID - frame vlan id
@@ -179,7 +219,7 @@ Kinds:
 
 > // enable command?
 
-canNOT contain STP, RSTP (stp dont understand virtual networks, so works badly)
+canNOT contain STP, RSTP (stp doNOTunderstand virtual networks, so works badly)
 
 can - OSPF, ARP
 
@@ -207,6 +247,8 @@ by default all ports in default VLAN (can be manually deleted)
 
 **LOWER** is best (default port priority **128**)
 
+TCN - Topology Change Notification
+
 doNOT work with vlan
 
 Only 1 root port on non-root device
@@ -220,7 +262,18 @@ RSTP optimizes STP in many aspects, provides faster convergence, and is compatib
 
 Default Forward delay = **15 sec**
 
+> RSTP prots:
+>
+> - root port
+> - designated port
+> - alternate port
+> - backup port
+
 ![stp port states](./media/stp_port_states.PNG)
+
+![stp cost](./media/stp_cost.PNG)
+
+
 
 ![rstp port states](./media/rstp_port_states.PNG)
 
@@ -235,6 +288,8 @@ DHCP + **option 43**
 packet **Beacon** - AP **proactively** share SSID (**passive** STA scanning)
 
 packet **Probe** - active STA scanning
+
+**BSSID** = func(APs MAC)
 
 > Topologies:
 >
@@ -252,6 +307,10 @@ packet **Probe** - active STA scanning
 > 2 - Establish CAPWAP
 >
 > 3 - AP access control
+
+![VAP profile](./media/vap_profile.PNG)
+
+![VAP](./media/vap.PNG)
 
 # ACL
 
@@ -285,12 +344,12 @@ iStack and CSS provide the same functions, despite their different names and imp
 
 # SDN
 
-> Characterisitics:
+> Characteristics:
 >
 > - centralized control
 > - forwarding-control separation
 > - open programmable interfaces
-> - (distributed frowarding)
+> - (distributed forwarding)
 
 ![sdn arch](./media/sdn_arch.PNG)
 ___

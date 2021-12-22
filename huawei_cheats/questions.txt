@@ -664,14 +664,14 @@ D.	RSTP is backward compatible with STP.
 
 *---------------------------------------------------------------------------------------*
 49.	(<SA>)Which of the following statements is true about APs in WLAN networking?
-A.	Typically, APs use PoE power to facilitate deployment. 
++ A.	Typically, APs use PoE power to facilitate deployment. 
 B.	An AC must be deployed in WLAN networks.
 C.	Fat APs need to work with an AC and are managed and configured by the AC in a unified manner.
 D.	Fit APs can independently implement functions such as wireless user access, service data encryption, and service data packet forwarding.
 
 *---------------------------------------------------------------------------------------*
 50.	(<SA>)Dynamic routing protocols can be classified into Interior Gateway Protocol (IGP) and Exterior Gateway Protocol (EGP) according to their working area. Which of the following protocols is an EGP?
-A.	BGP 
++ A.	BGP 
 B.	RIP
 C.	IS-IS
 D.	OSPF
@@ -681,13 +681,13 @@ D.	OSPF
 A.	Data frames of VLANs 7,8, and 9 can be transmitted on a trunk link.
 B.	Data frames of VLANs $1,7,8$, and 9 can be transmitted on a trunk link.
 C.	Data frames of VLANs 1,7, and 9 can be transmitted on a trunk link. 
-D.	Data frames of VLANs $7,8,9$, and 10 can be transmitted on a trunk link.
++ D.	Data frames of VLANs $7,8,9$, and 10 can be transmitted on a trunk link.
 
 *---------------------------------------------------------------------------------------*
-52.	(<SA>)The Network Configuration Protocol (NETCONF) provides a mechanism for managing network devices. Which of the following statements about NETCONF is false?
+(?) 52.	(<SA>)The Network Configuration Protocol (NETCONF) provides a mechanism for managing network devices. Which of the following statements about NETCONF is false?
 
 A.	Yet Another Next Generation (YANG) is a data modeling language that standardizes NETCONF data content.
-B.	If YANG files are not integrated into a device, the device does not support NETCONF.
++ B.	If YANG files are not integrated into a device, the device does not support NETCONF.
 C.	NETCONF messages are formatted using either JSON or XML. 
 D.	NETCONF supports trial runs and rollback in case of errors.
 
@@ -699,7 +699,7 @@ A data frame with the destination MAC address 00-01-02-03-04-BB is received on G
 
 A.	Forwards the first frame and floods the second frame.
 B.	Forwards the first frame and discards the second frame.
-C.	Floods the first frame and discards the second frame. 
++ C.	Floods the first frame and discards the second frame. 
 D.	Floods the first frame and forwards the second frame.
  
 *---------------------------------------------------------------------------------------*
@@ -707,7 +707,7 @@ D.	Floods the first frame and forwards the second frame.
 A.	TCP
 B.	IGMP
 C.	UDP
-D.	ICMP 
++ D.	ICMP 
 
 *---------------------------------------------------------------------------------------*
 55.	(<SA>)Refer to the following configuration on a switch:
@@ -715,7 +715,7 @@ D.	ICMP
 Which of the following statements is true about this command?
 
 A.	VLANs 2 through 910 will be created on the switch.
-B.	VLANs 2 to 10 will be created on the switch. 
++ B.	VLANs 2 to 10 will be created on the switch. 
 C.	The command is incorrect. As a result, the VRP will report an error when this command is run.
 D.	VLANs 2,9 , and 10 will be created on the switch.
 
@@ -725,10 +725,10 @@ D.	VLANs 2,9 , and 10 will be created on the switch.
 A.	Hello packet
 B.	LSU packet
 C.	LSR packet
-D.	DD packet 
++ D.	DD packet 
 
 *---------------------------------------------------------------------------------------* 
-57.	(<SA>)As shown in the following networking, the interfaces connecting R1,R2,R3, and R4 are running OSPF, and are all in area0. On R1, a static route to the network segment 10.1.34.0/24 is configured using the “ip route-static 10.1.34.0 24 10.1.13.32” command. Which of the following statements is true?
+[?] 57.	(<SA>)As shown in the following networking, the interfaces connecting R1,R2,R3, and R4 are running OSPF, and are all in area0. On R1, a static route to the network segment 10.1.34.0/24 is configured using the “ip route-static 10.1.34.0 24 10.1.13.32” command. Which of the following statements is true?
 A.	The routing table of R1 contains only the OSPF route to the network segment 10.1.34.0/24, and the next hop of the route is 10.1.13.32. 
 B.	The routing table of R1 contains the OSPF route to the network segment 10.1.34.0/24, and the next hop of the route is 10.1.12.21.
 C.	The routing table of R1 contains both the static route and OSPF route to the network segment 10.1.34.0/24.
@@ -745,7 +745,7 @@ D.	NTP is a network layer protocol in the TCP/IP protocol suite.
 59.	(<SA>)In which of the following modes are DHCP Discover messages sent?
 A.	Unicast
 B.	Anycast
-C.	Broadcast 
++ C.	Broadcast 
 D.	Multicast
 
 *---------------------------------------------------------------------------------------*
@@ -753,12 +753,12 @@ D.	Multicast
 A.	Full
 B.	Loading
 C.	Down
-D.	Two-way 
++ D.	Two-way 
 
 *---------------------------------------------------------------------------------------*
 61.	(<SA>)Which of the following packet types is used by OSPF to maintain neighbor relationships?
 A.	LSU
-B.	Hello 
++ B.	Hello 
 C.	DD
 D.	LSR
 
@@ -767,14 +767,14 @@ D.	LSR
 A.	0 to 4095
 B.	0 to 4094
 C.	1 to 4094 
-D.	1 to 4095
++ D.	1 to 4095
 
 *---------------------------------------------------------------------------------------*
 63.	(<SA>)The Versatile Routing Platform (VRP) uses the file system to manage files and directories on a device. Which of the following commands can be used to check the current directory of a device?
 A.	display dir
-B.	dir
+(+) B.	dir
 C.	Is
-D.	Pwd 
++ D.	Pwd 
 
 *---------------------------------------------------------------------------------------*
 64.	(<SA>)A router has the following four specific routes:
@@ -784,13 +784,13 @@ ip route-static 10.1.22.0 24 12.1.1.2
 ip route-static 10.1.23.0 24 12.1.1.2
 To summarize these specific routes which of the following commands should be run?
 
-A.	ip route-static 10.1.20.0 23 12.1.1.2
-B.	ip route-static 10.1.16.0 21 12.1.1.2
-C.	ip route-static 10.1.20.0 22 12.1.1.2 
-D.	ip route-static 10.1.0.0 16 12.1.1.2
++ A.	ip route-static 10.1.20.0 23 12.1.1.2
+(+)B.	ip route-static 10.1.16.0 21 12.1.1.2
+(+)C.	ip route-static 10.1.20.0 22 12.1.1.2 
+(+)D.	ip route-static 10.1.0.0 16 12.1.1.2
 
 *---------------------------------------------------------------------------------------*
-65.	(<SA>)Various profiles are designed to facilitate the configuration and maintenance of WLAN functions and features. Which of the following statements about these profiles is false?
+[?]65.	(<SA>)Various profiles are designed to facilitate the configuration and maintenance of WLAN functions and features. Which of the following statements about these profiles is false?
 
 A.	Radio profiles are used to optimize radio parameters and control the in-service channel switching function.
 B.	Regulatory domain profiles provide configurations of the country code, calibration channel set, and calibration bandwidth for APs.
@@ -803,28 +803,29 @@ D.	VAP profiles provide differentiated WLAN services for users.
 A.	Application layer, presentation layer, session layer, transport layer, network layer, data link layer, and physical layer
 B.	Physical layer, data link layer, network layer, transport layer, session layer, presentation layer, and application layer
 C.	Application layer, transport layer, network layer, data link layer, physical layer
-D.	Physical layer, data link layer, network layer, transport layer, application layer 
++ D.	Physical layer, data link layer, network layer, transport layer, application layer 
 
 *---------------------------------------------------------------------------------------*
-67.	(<SA>)A WLAN is constructed using wireless technologies. Which of the following statements about the WLAN networking is false?
+@ 67.	(<SA>)A WLAN is constructed using wireless technologies. Which of the following statements about the WLAN networking is false?
 
 A.	The service set identifier (SSID) identifies a wireless network and is represented using a character string.
 B.	A basic service set (BSS) indicates an area covered by an AP.
-C.	A virtual access point (VAP) is a service entity virtualized on an AP. All VAPs virtualized on the same AP has the same BSSID. 
++ C.	A virtual access point (VAP) is a service entity virtualized on an AP. All VAPs virtualized on the same AP has the same BSSID. 
 D.	The basic service set identifier (BSSID) identifies a wireless network and is represented using the MAC address of an AP.
 
 *---------------------------------------------------------------------------------------*
 68.	(<SA>)OSPF authentication enables a device to encrypt OSPF packets by adding an authentication field to the packets, ensuring network security. Which of the following statements about OSPF authentication is false?
 A.	OSPF authentication is classified into area authentication and interface authentication.
-B.	The authentication modes of two OSPF neighbors must be the same, that is, both of them either use interface authentication or use area authentication. 
++ B.	The authentication modes of two OSPF neighbors must be the same, that is, both of them either use interface authentication or use area authentication. 
 C.	Interface authentication is configured in the interface view and applies to all the packets received on the interface.
 D.	Area authentication applies to the packets received on all the interfaces in a specific area.
+
 
 *---------------------------------------------------------------------------------------*
 69.	(<SA>)The Domain Name System (DNS) protocol is used to resolve domain names to IP addresses. Which of the following statements about DNS is false?
 
 A.	A DNS server maintains the database that stores the mappings between domain names and IP addresses and responds to the requests from the resolver.
-B.	DNS supports traversal query. 
++ B.	DNS supports traversal query. 
 C.	DNS supports recursive query.
 D.	A domain name can be used to identify a host.
 
@@ -832,29 +833,29 @@ D.	A domain name can be used to identify a host.
 70.	(<SA>)Which of the following statements about Fit AP+AC networking is true?
 
 A.	After a CAPWAP tunnel is established between the AC and Fit AP, keepalive packets are used to detect the status of the CAPWAP tunnel.
-B.	A data tunnel and a control tunnel will be established between the AC and Fit AP. 
++ B.	A data tunnel and a control tunnel will be established between the AC and Fit AP. 
 C.	The tunnel forwarding mode can reduce the forwarding pressure on the AC.
 D.	The AP version can be upgraded through HTTP.
 
 *---------------------------------------------------------------------------------------*
 71.	(<SA>)Which of the following commands can be used to check OSPF LSDB information on a Huawei device?
 A.	display ospf routing
-B.	display ospf Isdb 
++ B.	display ospf Isdb 
 C.	display ospf brief
 D.	display ospf peer
 
 *---------------------------------------------------------------------------------------*
-72.	(<SA>)Network Address Translation (NAT) translates the IP address in an IP packet header into another IP address. Which of the following is not an advantage of NAT?
+(?) 72.	(<SA>)Network Address Translation (NAT) translates the IP address in an IP packet header into another IP address. Which of the following is not an advantage of NAT?
 
 A.	Alleviating the exhaustion of IP addresses
 B.	Allowing the access of intranet hosts to external networks and the access of external hosts to intranets, and enabling communication between intranets and external networks
-C.	Implementing accurate identification and control of packet flows on networks to control network access behavior, prevent network attacks, and improve network bandwidth efficiency 
++ C.	Implementing accurate identification and control of packet flows on networks to control network access behavior, prevent network attacks, and improve network bandwidth efficiency 
 D.	Effectively preventing attacks from external networks and greatly improving network security
 
 *---------------------------------------------------------------------------------------*
 73.	(<SA>)Which of the following is not a valid port role in RSTP?
 
-A.	Forwarding port 
++ A.	Forwarding port 
 B.	Root port
 C.	Backup port
 D.	Designated port
@@ -862,10 +863,12 @@ D.	Designated port
 *---------------------------------------------------------------------------------------*
 74.	(<SA>)The Point-to-Point Protocol (PPP) is a common data link layer protocol for wide area networks (WANs). Which of the following statements about PPP is false?
 
-A.	The establishment of a PPP link goes through three phases: link layer negotiation, network layer negotiation, and authentication. 
++ A.	The establishment of a PPP link goes through three phases: link layer negotiation, network layer negotiation, and authentication. 
 B.	PPP uses the Link Control Protocol (LCP) to negotiate link control layer parameters.
 C.	PPP supports the Password Authentication Protocol (PAP) and Challenge-Handshake Authentication Protocol (CHAP).
 D.	If PPP uses password authentication mode, negotiation packets are transmitted in plain text, which is insecure.
+
+// link, auth, callback, network
 
 *---------------------------------------------------------------------------------------*
 75.	(<SA>)The following shows the routing table of a specific router:
@@ -876,42 +879,44 @@ Destination/Mask  Proto  Pre   Cost Flags     NextHop      Interface
 172.16.1.0/22    Static  80     0     RD    192.168.1.2     GigabitEthernet0/0/0 
 When data needs to be sent to the destination 172.16.1.1 through this router, which of the following routes is used?
 
-A.	OSPF route 172.16.1.0/24 with a preference of 10 and cost of 200 
++ A.	OSPF route 172.16.1.0/24 with a preference of 10 and cost of 200 
 B.	Both static routes because their cost values are the same
 C.	Static route 172.16.1.0/22 with a preference of 80 and cost of 0
 D.	Static route 172.16.0.0/16 with a preference of 5 and cost of 0
+
+// longest matching
 
 *---------------------------------------------------------------------------------------*
 76.	(<SA>)Which is the most widely used VLAN assignment method?
 A.	MAC address-based VLAN assignment
 B.	Protocol-based VLAN assignment
 C.	IP subnet-based VLAN assignment
-D.	Interface-based VLAN assignment 
++ D.	Interface-based VLAN assignment 
 
 *---------------------------------------------------------------------------------------*
 77.	(<SA>)Mastering the basic operations of the file system is crucial for network engineers to efficiently manage the configuration files and VRP system files of devices. Which of the following statements is true about these files?
 A.	System software is mandatory for device startup and running. The common file name extension is .cfg.
 B.	A configuration file stores configuration commands. The common file name extension is .cc.
 C.	A patch file is a type of software compatible with the system software. The common file name extension is .zip.
-D.	A PATH file effectively controls product features and resources. The common file name extension is .bin. 
++ D.	A PATH file effectively controls product features and resources. The common file name extension is .bin. 
 
 *---------------------------------------------------------------------------------------*
-78. In STP mode, if the root port of a non-root bridge is shut down, which of the following statements is true?
+[?]78. In STP mode, if the root port of a non-root bridge is shut down, which of the following statements is true?
 A. The switch will immediately delete the entire MAC address table.
 B. The switch will immediately send updated configuration BPDUs from a specified port.
-C. The switch will immediately send TCN packets.
++ C. The switch will immediately send TCN packets.
 D. The switch will immediately send TC packets.
 
 *---------------------------------------------------------------------------------------*
 79. Which of the following statements about ARP packet sending is true?
 A. The destination MAC address of ARP Request packets sent from a host is a unicast MAC address.
 B. The destination IP address of ARP Request packets sent from a host is a broadcast IP address.
-C. The destination MAC address of ARP Reply packets sent from a host is a unicast MAC address.
++ C. The destination MAC address of ARP Reply packets sent from a host is a unicast MAC address.
 D. The destination MAC address of ARP Reply packets sent from a host is a broadcast MAC address.
 
 *---------------------------------------------------------------------------------------*
 80. Which of the following statements is true when switches are used on the Ethernet?
 A. Broadcast domains are increased but reduce broadcasts.
-B. Broadcast domains and broadcasts are both increased.
++ B. Broadcast domains and broadcasts are both increased.
 C. Collision domains are increased but collisions are reduced.
 D. Collision domains and collisions are both increased.
