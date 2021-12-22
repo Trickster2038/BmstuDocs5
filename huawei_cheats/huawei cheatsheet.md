@@ -8,9 +8,19 @@ Take me to [pookie](#pookie)
 
 MTU - Maximal transit unit (for interface)
 
+- **Switch = isolate collision domains, join 1 broadcast domain**
+- **Router = isolate broadcast & collision domains**
+
 Control plane: provides functions such as protocol processing, service processing, route calculation, forwarding control, service scheduling, traffic statistics collection, and system security. The control plane of a switch is used to control and manage the running of all network protocols. The control plane provides various network information and forwarding query entries required for data processing and forwarding on the data plane
 
 forwarding equivalence class (FEC) is a term used in Multiprotocol Label Switching (MPLS) to describe a set of packets with similar or identical characteristics which may be forwarded the same way
+
+> 44.	(<SA>)The Point-to-Point Protocol (PPP) is a common data link layer protocol for wide area networks (WANs). Which of the following statements about PPP is false?
+> + A.	The establishment of a PPP link goes through three phases: link layer negotiation, network layer negotiation, and authentication. 
+> + B.	PPP uses the Link Control Protocol (LCP) to negotiate link control layer parameters.
+> - C.	If PPP uses password authentication mode, negotiation packets are transmitted in plain text, which is insecure.
+>
+> + D.	PPP supports the Password Authentication Protocol (PAP) and Challenge Handshake Authentication Protocol (CHAP).
 
 In asynchronous transmission, data is transmitted byte by byte. Therefore, it is less efficient than synchronous transmission.
 
@@ -18,7 +28,7 @@ In asynchronous transmission, data is transmitted byte by byte. Therefore, it is
 >
 > IPv4 - OSPFv2
 
-VRP - console, telnet, USB router conf (no FTP)
+VRP - console, telnet, USB router conf *(no FTP)*
 
 > simple switches doNOT isolate broadcast domains, but vlan or layer 3 can (usually routers do)
 
@@ -43,6 +53,8 @@ traceroute - ICMP
 > FTP uses TCP/21 (commands), TCP/20 (data)
 >
 > SFTP uses SSH+TCP/22
+>
+> CAPWAP uses UDP ports 5246 (control channel) and 5247 (data channel)
 
 Message Age of STP root conf msg = 0
 
@@ -108,7 +120,7 @@ An IPv6 packet has three parts: an IPv6 basic header, one or more IPv6 extension
 
 fields: priority, router ID[no 0?] (**HIGHER** is best)
 
-> Netowrk types
+> Network types
 >
 > - Point-to-point
 > - Point-to-multipoint
@@ -156,7 +168,7 @@ Packets (in time order): Discover-broadcast, offer-unicast, request-broadcast, a
 
 # VLAN (802.q1)
 
-**TPID** tag 0x8100 in TAG-ID .1q-frame (not Eth)
+**TPID** tag 0x8100 in TAG-ID .1q-frame (not Eth) **4 bytes tag**
 
 > PVID - port vlan id, Vlan_ID - frame vlan id
 
@@ -193,13 +205,16 @@ by default all ports in default VLAN (can be manually deleted)
 
 # STP + RSTP
 
+**LOWER** is best (default port priority **128**)
+
 doNOT work with vlan
 
 Only 1 root port on non-root device
 
-**LOWER** is best
+RSTP optimizes STP in many aspects, provides faster convergence, and is compatible with STP.
 
 > RSTP = STP after conf BDPU
+>
 
 > In RSTP, a backup port can replace a faulty root port
 
@@ -207,17 +222,26 @@ Default Forward delay = **15 sec**
 
 ![stp port states](./media/stp_port_states.PNG)
 
+![rstp port states](./media/rstp_port_states.PNG)
+
 # WLAN
 
-AP upgrade modes: AC, FTP, SFTP (no tftp)
+AP upgrade modes: AC, FTP, SFTP *(no tftp)*
 
-**Authentication modes**: MAC, SN, no auth
+**Authentication modes**: MAC, SN (serial number), no auth *(no password)*
 
 DHCP + **option 43**
 
 packet **Beacon** - AP **proactively** share SSID (**passive** STA scanning)
 
 packet **Probe** - active STA scanning
+
+> Topologies:
+>
+> - in-path
+> - off-path
+>   - direct forwarding (local)
+>   - **tunnel forwarding (centralized) - Data through AC**
 
 ![ap_requests](./media/wlan_ap_reqs.PNG)
 

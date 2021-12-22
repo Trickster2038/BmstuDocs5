@@ -496,10 +496,10 @@ B.	False
 
 *---------------------------------------------------------------------------------------*
 8. (<TF>)A router learns routes to the same destination network through different protocols. When the routes comply with the longest match rule and are assigned the same preference value, the router compares the metrics of these routes to determine the optimal route.
-A.	True
++ A.	True
 + B.	False 
 
-// longest match rule goes last
+// longest match rule goes first
 
 *---------------------------------------------------------------------------------------*
 8. (<TF>)In asynchronous transmission, data is transmitted byte by byte. Therefore, it is less efficient than synchronous transmission.
@@ -567,8 +567,8 @@ B.	False
 B.	False
 
 *---------------------------------------------------------------------------------------*
-+ 8. (<TF>)Tracert is a typical application of ICMP.
-A.	True 
+8. (<TF>)Tracert is a typical application of ICMP.
++ A.	True 
 B.	False
 
 *---------------------------------------------------------------------------------------*
@@ -578,65 +578,72 @@ A.	True
 
 *---------------------------------------------------------------------------------------*
 8. (<TF>)A router learns routes to the same destination network through different protocols. When the routes comply with the longest match rule and are assigned the same preference value, the router compares the metrics of these routes to determine the optimal route.
-A.	True
++ A.	True
 B.	False 
+
+// longest match rule goes first
 
 *---------------------------------------------------------------------------------------*
 8. (<TF>)Each interface of a router is in an independent broadcast domain.
-A.	True 
++ A.	True 
 B.	False
 
+// switch = isolate collision domains, routers - isolate broadcast
 *---------------------------------------------------------------------------------------*
 8. (<TF>)SNMP is a standards-based network management protocol widely used on TCP/IP networks. It provides a method for managing network elements through a central computer that runs network management software - known as a network management station (NMS). An SNMP NMS and SNMP agent communicate with each other through UDP.
-A.	True 
++ A.	True 
 B.	False
 
 *---------------------------------------------------------------------------------------*
-8. (<TF>)OSPF defines two types of multi-access networks: Non-Broadcast Multiple Access network and Point-to-Multipoint network.
+[?] 8. (<TF>)OSPF defines two types of multi-access networks: Non-Broadcast Multiple Access network and Point-to-Multipoint network.
 A.	True 
-B.	False
++ B.	False
 
 *---------------------------------------------------------------------------------------*
-8. (<TF>)The MAC address table of a switch stores mappings between the destination MAC addresses of frames and ports.
+(?) 8. (<TF>)The MAC address table of a switch stores mappings between the destination MAC addresses of frames and ports.
 A.	True
-B.	False 
++ B.	False 
+
+// ответы на рк2
 
 *---------------------------------------------------------------------------------------*
-8. (<TF>)After receiving a data frame from any port, a hub forwards it to any other port.	
+(?) 8. (<TF>)After receiving a data frame from any port, a hub forwards it to any other port.	
 A.	True 
-B.	False
++ B.	False
+
+// to all other ports
 
 *---------------------------------------------------------------------------------------*
 8. (<TF>)In data communications, the data format must be determined and agreed by the information creator and the information receiver before the data is transmitted.
-A.	True 
++ A.	True 
 B.	False
 
 *---------------------------------------------------------------------------------------*
 8. (<TF>)The bus and star topologies, which are frequently used in a LAN, refer to the physical connection types rather than the logical structure of the network.	
 A.	True
-B.	False 
++ B.	False 
 
 *---------------------------------------------------------------------------------------*
 8. (<TF>)Regardless of multicast or unicast, an L2 switch establishes its MAC address table entries by means of MAC address learning.	
-A.	True
++ A.	True
 B.	False 
 
 44.	(<SA>)The Point-to-Point Protocol (PPP) is a common data link layer protocol for wide area networks (WANs). Which of the following statements about PPP is false?
 A.	The establishment of a PPP link goes through three phases: link layer negotiation, network layer negotiation, and authentication. 
 B.	PPP uses the Link Control Protocol (LCP) to negotiate link control layer parameters.
-C.	If PPP uses password authentication mode, negotiation packets are transmitted in plain text, which is insecure.
++ C.	If PPP uses password authentication mode, negotiation packets are transmitted in plain text, which is insecure.
 D.	PPP supports the Password Authentication Protocol (PAP) and Challenge Handshake Authentication Protocol (CHAP).
 
 *---------------------------------------------------------------------------------------*
 45.	(<SA>)OSPF has multiple types of protocol packets. These packets play different roles in the interaction between OSPF routers. Which of the following packets describes summary information about the local LSDB and is used to synchronize the LSDBs of two routers?
-A.	DD packet 
++ A.	DD packet 
 B.	Hello packet
 C.	LSU packet
 D.	LSR packet
 
 *---------------------------------------------------------------------------------------*
 46.	(<SA>)The process for an AP to go online is as follows: The AP sends a Join Request packet to an AC, which then authenticates the AP after receiving the packet. The AP gets managed after being successfully authenticated. Which of the following AP authentication methods is not supported by an AC?
-A.	Password authentication 
++ A.	Password authentication 
 B.	MAC address authentication
 C.	Serial number authentication
 D.	Non-authentication
@@ -645,12 +652,12 @@ D.	Non-authentication
 47.	(<SA>)Which of the following statements is false about Control and Provisioning of Wireless Access Points (CAPWAP)?
 A.	CAPWAP is used to maintain the connectivity between APs and an AC.
 B.	When tunnel forwarding is used, an AP exchanges data with an AC through a CAPWAP tunnel.
-C.	CAPWAP is an application layer protocol based on TCP. 
++ C.	CAPWAP is an application layer protocol based on TCP. 
 D.	CAPWAP transmits two types of messages at the transport layer: service data traffic and management traffic.
 
 *---------------------------------------------------------------------------------------*
 48.	(<SA>)Which of the following statements about STP and RSTP is false?
-A.	There are three RSTP port states: Forwarding, Learning, and Blocking. 
++ A.	There are three RSTP port states: Forwarding, Learning, and Blocking. 
 B.	There are five STP port states: Forwarding, Learning, Listening, Blocking, and Disabled.
 C.	RSTP converges faster than STP.
 D.	RSTP is backward compatible with STP.
