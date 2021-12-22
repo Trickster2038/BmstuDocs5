@@ -321,11 +321,11 @@ B. ip route-static 10.0.0.2 16 129.1.0.0
 - C. The routing table of any router must contain the default route.
 - D. The default route can only be manually configured by the administrator.
 
-53. Segment routing (SR) can be used to define an explicit path. Nodes on a network only need to maintain SR information to deal with the real-time and rapid development of services. What are the characteristics of SR?
-A. SR supports smooth evolution of the existing network by extending existing protocols (such as IGPs).
-B. SR supports both the controller's centralized control mode and forwarders' distributed control mode, providing a balance between the two modes.
-C. SR uses the source routing technology to support fast interaction between the network layer and upper-layer applications.
-D. SR uses IP forwarding, and routers do not need to maintain another label forwarding table.
+(?) 53. Segment routing (SR) can be used to define an explicit path. Nodes on a network only need to maintain SR information to deal with the real-time and rapid development of services. What are the characteristics of SR?
++ A. SR supports smooth evolution of the existing network by extending existing protocols (such as IGPs).
++ B. SR supports both the controller's centralized control mode and forwarders' distributed control mode, providing a balance between the two modes.
++ C. SR uses the source routing technology to support fast interaction between the network layer and upper-layer applications.
+-? D. SR uses IP forwarding, and routers do not need to maintain another label forwarding table.
 
 52. Refer to the following display ip routing-table command output on the router R1. Which of the following statements are true?
 display ip routing-table
@@ -335,222 +335,246 @@ Destinations : 10 \quad$ Routes : 10
 Destination/Mask     Proto    Pre  Cost   Flags      NextHop     Interface
 10.0.0.0 / 8         Static    60   0      RD      10.0 .12 .2  Ethernet 0/0/0
 10.0.2.2 /32         Static    70   0      RD      10.0 .21 .2  Ethernet 0/0/1
-A. The next hop of the route from R1 to 10.0.0.1 is 10.0.12.2.
++ A. The next hop of the route from R1 to 10.0.0.1 is 10.0.12.2.
 B. The next hop of the route from R1 to 10.0.0.1 is 10.0.21.2.
 C. The next hop of the route from R1 to 10.0.2.2 is 10.0.12.2.
-D. The next hop of the route from R1 to 10.0.2.2 is 10.0.21.2.
++ D. The next hop of the route from R1 to 10.0.2.2 is 10.0.21.2.
 
 # TRUE/FALSE
 (<TF>)
 1.	(<TF>) FTP is a file transfer protocol and works in active or passive mode.
-A.	True 
++ A.	True 
 B.	False
 *---------------------------------------------------------------------------------------*
 2.	(<TF>) In the WLAN network architecture, ACs can be connected in in-path or off-path mode.
-A.	True 
++ A.	True 
 B.	False
 *---------------------------------------------------------------------------------------*
 3.	(<TF>) In STP, a non-root-bridge switch can have two root ports.
 A.	True
-B.	False 
++ B.	False 
 *---------------------------------------------------------------------------------------*
 4.	(<TF>) TFTP uses TCP to transfer files, and the default server port number is 21.
 A.	True
-B.	False 
++ B.	False 
+
+// UDP/69
 *---------------------------------------------------------------------------------------*
 5.	(<TF>) SNMP is a standards-based network management protocol widely used on TCP/IP networks. It provides a method for managing NEs through a central computer that runs network management software, that is, a network management station (NMS). An SNMP NMS and SNMP agent communicate with each other through the TCP protocol.
 A.	True
-B.	False 
++ B.	False 
+
+// SNMP uses UDP
+
 *---------------------------------------------------------------------------------------*
-6.	(<TF>) Software-defined networking (SDN) is a new type of network architecture originally proposed by the Clean Slate research team at Stanford University. SDN has three characteristics: forwarding-control separation, centralized control, and open programmable interfaces.
-A.	True 
+(?) 6.	(<TF>) Software-defined networking (SDN) is a new type of network architecture originally proposed by the Clean Slate research team at Stanford University. SDN has three characteristics: forwarding-control separation, centralized control, and open programmable interfaces.
++ A.	True 
 B.	False
 *---------------------------------------------------------------------------------------*
 7.	(<TF>) The PVID of a trunk port on a switch may not be the ID of a VLAN that is allowed for the port.
-A.	True 
++ A.	True 
 B.	False
 *---------------------------------------------------------------------------------------*
 8.	(<TF>) A CAPWAP tunnel is established between the Fit AP and AC to transmit management traffic and service data traffic.
-A.	True
++ A.	True
 B.	False 
 *---------------------------------------------------------------------------------------*
-9.	(<TF>) During IP packet forwarding, the last-hop router forwards packets using the direct route.
+[?] 9.	(<TF>) During IP packet forwarding, the last-hop router forwards packets using the direct route.
 A.	True 
-B.	False
++ B.	False
 *---------------------------------------------------------------------------------------*
 10.	(<TF>) After receiving a tagged frame from the peer device, an access port of a switch checks the VLAN ID of the frame. If the VLAN ID is the same as PVID of this port, the port accepts the frame and removes the tag from the frame.
-A.	True
++ A.	True
 B.	False 
 *---------------------------------------------------------------------------------------*
-11.	(<TF>) A blackhole route (or null route) can prevent routing loops.
-A.	True 
+@ 11.	(<TF>) A blackhole route (or null route) can prevent routing loops.
++ A.	True 
 B.	False
 *---------------------------------------------------------------------------------------*
 12.	(<TF>) To prevent out-of-order packets, it is recommended that Eth-Trunk use flow-based load balancing.
-A.	True 
++ A.	True 
 B.	False
 *---------------------------------------------------------------------------------------*
 13.	(<TF>) AAA is short for authentication, authorization, and application.
 A.	True
-B.	False 
++ B.	False 
 *---------------------------------------------------------------------------------------*
 14.	(<TF>) FTP is a file transfer protocol and works in active or passive mode.
-A.	True 
++ A.	True 
 B.	False
 *---------------------------------------------------------------------------------------*
 15.	(<TF>) After receiving a tagged frame from the peer device, an access port of a switch checks the VLAN ID of the frame. If the VLAN ID is the same as PVID of this port, the port accepts the frame and removes the tag from the frame.
-A.	True
++ A.	True
 B.	False 
 *---------------------------------------------------------------------------------------*
 16.	(<TF>) Segment routing (SR) provides an innovative traffic steering method. It divides a network path into segments and allocates segment IDs (SIDs) to these segments. The segments and nodes are sequentially arranged into a segment list to form a forwarding path.
-A.	True 
++ A.	True 
 B.	False
 *---------------------------------------------------------------------------------------*
 17.	(<TF>) A hybrid port on a switch can connect to either a user host or a port on another switch.
-A.	True 
++ A.	True 
 B.	False
 *---------------------------------------------------------------------------------------*
 18.	(<TF>) Before sending an IPv6 packet, an interface performs the following operations in this order: address configuration, address resolution, and duplicate address detection (DAD).
 A.	True
-B.	False 
++ B.	False 
 *---------------------------------------------------------------------------------------*
-19.	(<TF>) Switches can implement communication between homogeneous networks or communication between heterogeneous networks and isolate broadcast domains.
+(?) 19.	(<TF>) Switches can implement communication between homogeneous networks or communication between heterogeneous networks and isolate broadcast domains.
 A.	True
-B.	False 
++ B.	False 
+
+// simple switches dont isolate broadcast domains, but vlan or layer 3 can
 *---------------------------------------------------------------------------------------*
 20. (<TF>)Python is a language that can invoke code written in other languages.
-A.	True 
++ A.	True 
 B.	False
 *---------------------------------------------------------------------------------------*
 21. (<TF>)By default, local authentication is used in the default AAA domain.
-A.	True 
++ A.	True 
 B.	False
 *---------------------------------------------------------------------------------------*
 22. (<TF>)Both Java and Python are interpreted languages.
-A.	True 
++ A.	True 
 B.	False
 *---------------------------------------------------------------------------------------*
 23. (<TF>)You can run the display ospf lsdb command to view the LSDB of a router. The LSDBs of all OSPF-enabled routers on a network are the same.
 A.	True 
-B.	False
++ B.	False
+
+// LSDB are same only on DR+BDR
 *---------------------------------------------------------------------------------------*
-24. (<TF>)Users can configure IP addresses for terminals connected to a WLAN.
-A.	True
+(?) 24. (<TF>)Users can configure IP addresses for terminals connected to a WLAN.
++ A.	True
 B.	False 
 *---------------------------------------------------------------------------------------*
 25. (<TF>)When you configure an ACL, the rule increment is 5 by default, and this cannot be changed.
 A.	True
-B.	False 
++ B.	False 
 
+// increment can be changed
 *---------------------------------------------------------------------------------------*
 26. (<TF>)To improve code modularization and utilization, the keyword class is defined.
-A.	True 
++ A.	True 
 B.	False
 
 *---------------------------------------------------------------------------------------*
 27. (<TF>)C/C++ is a compiled high-level programming language.
-A.	True 
++ A.	True 
 B.	False
 
 *---------------------------------------------------------------------------------------*
-28. (<TF>)An OpenFlow switch forwards packets based on the flow table and matches only the destination MAC address and destination IP address in the packets.
+[?] 28. (<TF>)An OpenFlow switch forwards packets based on the flow table and matches only the destination MAC address and destination IP address in the packets.
 A.	True
-B.	False 
++ B.	False 
 
 *---------------------------------------------------------------------------------------*
 29. (<TF>)iStack and CSS provide the same functions, despite their different names and implementation mechanisms.
-A.	True 
++ A.	True 
 B.	False
 
 *---------------------------------------------------------------------------------------*
 6. (<TF>)In the SDN architecture, the interface for communication between the controller and SDN-ready switch is a southbound interface.
-A.	True 
++ A.	True 
 B.	False
 
 *---------------------------------------------------------------------------------------*
 7. (<TF>)The IP address 10.0.10.63 and mask 255.255.255.224 indicate a broadcast address.
 A.	True 
-B.	False
++ B.	False
+
+// broadcast: 10.0.10.31 mask 5
 
 *---------------------------------------------------------------------------------------*
 8. (<TF>)An SDN network is characterized by centralized control, forwarding-control separation, and open interfaces.
-A.	True 
++ A.	True 
 B.	False
 
 *---------------------------------------------------------------------------------------*
-8. (<TF>) MPLS is often used on IP backbone networks. Forwarding equivalence class (FEC) is a term used in MPLS to describe a collection of packets with the same characteristics.
-A.	True 
+(?) 8. (<TF>) MPLS is often used on IP backbone networks. Forwarding equivalence class (FEC) is a term used in MPLS to describe a collection of packets with the same characteristics.
++ A.	True 
 B.	False
 
 *---------------------------------------------------------------------------------------*
 8. (<TF>)A router learns routes to the same destination network through different protocols. When the routes comply with the longest match rule and are assigned the same preference value, the router compares the metrics of these routes to determine the optimal route.
 A.	True
-B.	False 
++ B.	False 
+
+// longest match rule goes last
 
 *---------------------------------------------------------------------------------------*
 8. (<TF>)In asynchronous transmission, data is transmitted byte by byte. Therefore, it is less efficient than synchronous transmission.
-A.	True 
++ A.	True 
 B.	False
 
+// syncronous - no gap data stream
+
 *---------------------------------------------------------------------------------------*
-8. (<TF>)OSPF defines two types of multi-access networks: Non-Broadcast Multiple Access network and Point-to-Multipoint network.
+[?] 8. (<TF>)OSPF defines two types of multi-access networks: Non-Broadcast Multiple Access network and Point-to-Multipoint network.
 A.	True 
-B.	False
++ B.	False
+
+// True - https://packetlife.net/blog/2008/jun/19/ospf-network-types/
+// False - Textbook 10 OSPF, page 18, 1.4.5
 
 *---------------------------------------------------------------------------------------*
 8. (<TF>)Equal-cost routes are routes to the same destination network that have the same mask, preference, and metric.
 A.	True 
-B.	False
++ B.	False
 
 *---------------------------------------------------------------------------------------*
 8. (<TF>)When a switch performs the flooding operation, it forwards a frame out through all ports except the one through which the frame was received.
-A.	True 
++ A.	True 
 B.	False
 
 *---------------------------------------------------------------------------------------*
 8. (<TF>)SNMP is a standards-based network management protocol widely used on TCP/IP networks. It provides a method for managing network elements through a central computer that runs network management software - known as a network management station (NMS). An SNMP NMS and SNMP agent communicate with each other through UDP.
-A.	True 
++ A.	True 
 B.	False
 
 *---------------------------------------------------------------------------------------*
 8. (<TF>)An IPv6 packet consists of three parts: an IPv6 basic header, one or more IPv6 extension headers, and an upper-layer protocol data unit (PDU).
-A.	True 
++ A.	True 
 B.	False
 
 *---------------------------------------------------------------------------------------*
 8. (<TF>)Before sending an IPv6 packet out, an interface performs the following operations in this order: address configuration, address resolution, and duplicate address detection (DAD).
 A.	True
-B.	False 
++ B.	False 
+
+// conf, DAD, resolution
 
 *---------------------------------------------------------------------------------------*
 8. (<TF>)The address segment FF02::1 indicates all routers within the link-local scope.
 A.	True
-B.	False 
++ B.	False 
+
+//  https://support.huawei.com/enterprise/en/doc/EDOC1000177796/16e69f9c/multicast-addresses
 
 *---------------------------------------------------------------------------------------*
-8. (<TF>)If no OSPFv3 router ID is configured, the system selects a router ID using rules similar to those used in OSPFv2.
-A.	True
+[?] 8. (<TF>)If no OSPFv3 router ID is configured, the system selects a router ID using rules similar to those used in OSPFv2.
++ A.	True
 B.	False 
+
 
 *---------------------------------------------------------------------------------------*
 8. (<TF>)If a router fails to find a specific route matching the destination address of a data packet and no default route is available, the router discards the packet.
-A.	True 
++ A.	True 
 B.	False
 
 *---------------------------------------------------------------------------------------*
 8. (<TF>)DHCPv6 devices are identified by DUIDs, and each DHCPv6 server or client can have only one DUID.
++ A.	True 
+B.	False
+
+*---------------------------------------------------------------------------------------*
++ 8. (<TF>)Tracert is a typical application of ICMP.
 A.	True 
 B.	False
 
 *---------------------------------------------------------------------------------------*
-8. (<TF>)Tracert is a typical application of ICMP.
+(?) 8. (<TF>)The OSPFv2 router ID can be automatically configured, whereas the OSPFv3 router ID must be manually configured.
 A.	True 
-B.	False
-
-*---------------------------------------------------------------------------------------*
-8. (<TF>)The OSPFv2 router ID can be automatically configured, whereas the OSPFv3 router ID must be manually configured.
-A.	True 
-B.	False
++ B.	False
 
 *---------------------------------------------------------------------------------------*
 8. (<TF>)A router learns routes to the same destination network through different protocols. When the routes comply with the longest match rule and are assigned the same preference value, the router compares the metrics of these routes to determine the optimal route.
