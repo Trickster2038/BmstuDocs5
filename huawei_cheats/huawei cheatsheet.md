@@ -2,66 +2,22 @@
 
 Take me to [pookie](#pookie)
 
+> TODO: hybrid port, eth2+1q frames, wifi standarts and default channels,
+>
+> blackhole null route, SDN, OpenFlow
 
-
-# OTHER
+# Basics + Routing & switching
 
 - **Switch FLOODS (not discards) if MAC not found **
 - **Switch discards if next port MAC = Source MAC**
 
-MTU - Maximal transit unit (for interface)
+> Routes: direct (link layer protos), static (handmade), dynamic (ospf, is-is, etc.)
 
 - **Switch = isolate collision domains, join 1 broadcast domain**
+
 - **Router = isolate broadcast & collision domains**
 
-Control plane: provides functions such as protocol processing, service processing, route calculation, forwarding control, service scheduling, traffic statistics collection, and system security. The control plane of a switch is used to control and manage the running of all network protocols. The control plane provides various network information and forwarding query entries required for data processing and forwarding on the data plane
-
-forwarding equivalence class (FEC) is a term used in Multiprotocol Label Switching (MPLS) to describe a set of packets with similar or identical characteristics which may be forwarded the same way
-
->File extensions:
->
->cc - system softaware
->
->cfg, dat, zip - config
->
->pat - patch
->
->bin - PAF (features and resources)
-
-> 44.	(<SA>)The Point-to-Point Protocol (PPP) is a common data link layer protocol for wide area networks (WANs). Which of the following statements about PPP is false?
-> + (FALSE) A.	The establishment of a PPP link goes through three phases: link layer negotiation, network layer negotiation, and authentication. 
-> + B.	PPP uses the Link Control Protocol (LCP) to negotiate link control layer parameters.
-> - C.	If PPP uses password authentication mode, negotiation packets are transmitted in plain text, which is insecure.
->
-> + D.	PPP supports the Password Authentication Protocol (PAP) and Challenge Handshake Authentication Protocol (CHAP).
-
-> (?) 52.	(<SA>)The Network Configuration Protocol (NETCONF) provides a mechanism for managing network devices. Which of the following statements about NETCONF is false?
->
-> - A.	Yet Another Next Generation (YANG) is a data modeling language that standardizes NETCONF data content.
->
-> - (FALSE) B.	If YANG files are not integrated into a device, the device does not support NETCONF.
-> - C.	NETCONF messages are formatted using either JSON or XML. 
-> - D.	NETCONF supports trial runs and rollback in case of errors.
-
-In asynchronous transmission, data is transmitted byte by byte. Therefore, it is less efficient than synchronous transmission.
-
-> IPv6 - OSPFv3
->
-> IPv4 - OSPFv2
-
-VRP - console, telnet, USB router conf *(no FTP)*
-
-> simple switches doNOT isolate broadcast domains, but vlan or layer 3 can (usually routers do)
-
-AAA - Authentication, Authorization, Accounting (Auth modes: hwtacacs | local (default) | radius)
-
-FTP kinds: active, passive
-
-Blackhole route / null route - key from routing loops
-
-traceroute, ping - ICMP 
-
-> Routes: direct (link layer protos), static (handmade), dynamic (ospf, is-is, etc.)
+  
 
 **TYPE CODES**: TCP-6, UDP-17, ICMP-1
 
@@ -77,19 +33,21 @@ traceroute, ping - ICMP
 >
 > CAPWAP uses UDP ports 5246 (control channel) and 5247 (data channel)
 
-Message Age of STP root conf msg = 0
-
-RSTP = STP after conf BDPU
-
-> TODO: 4096 step where?,CAPWAP TOPOS + DHCP, ip classes, hybrid port, STP ports and ID, eth2+1q frames, wifi standarts and default channels, ospf cost formulas, ospf statuses, STP
->
-> 
->
-> blackhole null route, SDN, OpenFlow
-
 ![dynamic routing](./media/dynamic_routing.PNG)
 
 ![route pick](./media/route_pick.PNG)
+
+![eth2 frame](./media/eth2_frame.PNG)
+
+![vlan frame](./media/vlan_frame.PNG)
+
+> - *Tag Protocol Identifier* (TPID, идентификатор протокола тегирования). Размер поля — 16 бит. Указывает какой протокол используется для тегирования. Для 802.1Q используется значение 0x8100.
+> - Tag control information (TCI). Также 16 бит. Состоит из следующих полей:
+>   - *Priority code point (PCP)*. Размер поля — 3 бита. Используется стандартом [IEEE 802.1p](https://ru.wikipedia.org/wiki/IEEE_802.1p) для задания приоритета передаваемого трафика (class of service).
+>   - *Drop eligible indicator (DEI). Размер поля — 1 бит.* (Прежде *Canonical Format Indicator*) *Индикатор допустимости удаления*. Может использоваться отдельно или совместно с *PCP* для указания кадров, которые могут быть отброшены при наличии перегрузки.
+>   - *VLAN Identifier* (VID, идентификатор VLAN). Размер поля — 12 бит. Указывает какому VLAN принадлежит кадр. Диапазон возможных значений от 0 до 4095.
+>
+> При использовании стандарта Ethernet II, 802.1Q вставляет тег перед полем «Тип протокола». Так как фрейм изменился, пересчитывается контрольная сумма.
 
 <a name="pookie">gg</a>
 
@@ -105,6 +63,8 @@ RSTP = STP after conf BDPU
 
 IEEE - MAC 01-80-C2-xx-xx-xx (STP MULTICAST 8bit = 1, 7 - Local administrated addr)
 
+48 bits
+
 ? Terminal host - not multicast ?
 
 # IPv4
@@ -116,6 +76,8 @@ IEEE - MAC 01-80-C2-xx-xx-xx (STP MULTICAST 8bit = 1, 7 - Local administrated ad
 OSPFv2
 
 ![ipv4 multi](./media/ipv4_multicast.PNG)
+
+![ip classes](./media/ip_classes.jpg)
 
 # IPv6
 
@@ -148,6 +110,8 @@ An IPv6 packet has three parts: an IPv6 basic header, one or more IPv6 extension
 ![ipv4 vs ipv6](./media/ipv4_ipv6.PNG)
 
 ![ipv6 multi](./media/ipv6_multicast.PNG)
+
+![ndp](./media/ndp.PNG)
 
 # OSPF 
 
@@ -245,7 +209,25 @@ by default all ports in default VLAN (can be manually deleted)
 
 # STP + RSTP
 
-**LOWER** is best (default port priority **128**)
+**LOWER** is best 
+
+> BID = bridge id (for picking root device)
+>
+> - Bridge priority 16 bits [0;65535], default **32768**, step 4096
+> - MAC 48 bits
+
+> PID = port id (picking port role)
+>
+> - port priority [0;240], default **128**, step 16
+> - port number - 12 bits
+
+*A root bridge does NOT have any root ports*. All ports on a root bridge are designated (*cisco*)
+
+> RSTP ports roles:
+>
+> - root port
+> - designated port - alternate on other side
+> - (alternate/ non-designated?)
 
 TCN - Topology Change Notification
 
@@ -256,13 +238,12 @@ Only 1 root port on non-root device
 RSTP optimizes STP in many aspects, provides faster convergence, and is compatible with STP.
 
 > RSTP = STP after conf BDPU
->
 
 > In RSTP, a backup port can replace a faulty root port
 
 Default Forward delay = **15 sec**
 
-> RSTP prots:
+> RSTP ports roles:
 >
 > - root port
 > - designated port
@@ -277,9 +258,13 @@ Default Forward delay = **15 sec**
 
 ![rstp port states](./media/rstp_port_states.PNG)
 
+![stp example](./media/stp_example.PNG)
+
 # WLAN
 
 AP upgrade modes: AC, FTP, SFTP *(no tftp)*
+
+14 channels
 
 **Authentication modes**: MAC, SN (serial number), no auth *(no password)*
 
@@ -288,6 +273,12 @@ DHCP + **option 43**
 packet **Beacon** - AP **proactively** share SSID (**passive** STA scanning)
 
 packet **Probe** - active STA scanning
+
+>BSS - zone
+>
+>BSSID - AP zone id = func(APs MAC)
+>
+>SSID - wifi name
 
 **BSSID** = func(APs MAC)
 
@@ -311,6 +302,10 @@ packet **Probe** - active STA scanning
 ![VAP profile](./media/vap_profile.PNG)
 
 ![VAP](./media/vap.PNG)
+
+![wlan security](./media/wlan_security.PNG)
+
+![wlan freqs](./media/wlan_freqs.PNG)
 
 # ACL
 
@@ -352,6 +347,64 @@ iStack and CSS provide the same functions, despite their different names and imp
 > - (distributed forwarding)
 
 ![sdn arch](./media/sdn_arch.PNG)
+
+# Other
+
+MTU - Maximal transit unit (for interface)
+
+Control plane: provides functions such as protocol processing, service processing, route calculation, forwarding control, service scheduling, traffic statistics collection, and system security. The control plane of a switch is used to control and manage the running of all network protocols. The control plane provides various network information and forwarding query entries required for data processing and forwarding on the data plane
+
+forwarding equivalence class (FEC) is a term used in Multiprotocol Label Switching (MPLS) to describe a set of packets with similar or identical characteristics which may be forwarded the same way
+
+>File extensions:
+>
+>cc - system softaware
+>
+>cfg, dat, zip - config
+>
+>pat - patch
+>
+>bin - PAF (features and resources)
+
+> 44.	(<SA>)The Point-to-Point Protocol (PPP) is a common data link layer protocol for wide area networks (WANs). Which of the following statements about PPP is false?
+>
+> + (FALSE) A.	The establishment of a PPP link goes through three phases: link layer negotiation, network layer negotiation, and authentication. 
+> + B.	PPP uses the Link Control Protocol (LCP) to negotiate link control layer parameters.
+>
+> - C.	If PPP uses password authentication mode, negotiation packets are transmitted in plain text, which is insecure.
+>
+> + D.	PPP supports the Password Authentication Protocol (PAP) and Challenge Handshake Authentication Protocol (CHAP).
+
+> (?) 52.	(<SA>)The Network Configuration Protocol (NETCONF) provides a mechanism for managing network devices. Which of the following statements about NETCONF is false?
+>
+> - A.	Yet Another Next Generation (YANG) is a data modeling language that standardizes NETCONF data content.
+>
+> - (FALSE) B.	If YANG files are not integrated into a device, the device does not support NETCONF.
+> - C.	NETCONF messages are formatted using either JSON or XML. 
+> - D.	NETCONF supports trial runs and rollback in case of errors.
+
+In asynchronous transmission, data is transmitted byte by byte. Therefore, it is less efficient than synchronous transmission.
+
+> IPv6 - OSPFv3
+>
+> IPv4 - OSPFv2
+
+VRP - console, telnet, USB router conf *(no FTP)*
+
+> simple switches doNOT isolate broadcast domains, but vlan or layer 3 can (usually routers do)
+
+AAA - Authentication, Authorization, Accounting (Auth modes: hwtacacs | local (default) | radius)
+
+FTP kinds: active, passive
+
+Blackhole route / null route - key from routing loops
+
+traceroute, ping - ICMP 
+
+Message Age of STP root conf msg = 0
+
+RSTP = STP after conf BDPU
+
 ___
 <div align="center">by t̶̹̊r̵̺̬̐i̶̡̲̋c̶̟̈̐k̷̩̓s̷̯̾t̴̞̏ḙ̷̽̈́ṛ̷̾</div>
 <div align="center">all rights reserved (no)</div>
