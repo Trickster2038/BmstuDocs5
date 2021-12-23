@@ -49,7 +49,7 @@ C. No OSPF process ID is configured on R1.
 + C. SFTP mode
 D. TFTP mode
 
-(?) 47. After an Eth-Trunk in LACP mode is created, devices on both ends send LACPDUs to elect the Actor. Which of the following parameters in LACPDUs determine the Actor election?
+47. After an Eth-Trunk in LACP mode is created, devices on both ends send LACPDUs to elect the Actor. Which of the following parameters in LACPDUs determine the Actor election?
 + A. Device priority
 + B. MAC address
 C. Interface priority
@@ -115,7 +115,7 @@ A. Apply for the configuration file.
 C. Upgrade the system software.
 D. Download the configuration file.
 
-[?] 36、What are the characteristics of interface-based VLAN assignment?
+36、What are the characteristics of interface-based VLAN assignment?
 - A. When a host is moved, you do not need to reconfigure the VLAN to which the host belongs.
 + B. When a host is moved, you need to reconfigure the VLAN to which the host belongs.
 - C. VLAN tags are added to data frames based on IP addresses carried in data frames.
@@ -766,8 +766,8 @@ D.	LSR
 62.	(<SA>)What is the valid VLAN ID range?
 A.	0 to 4095
 B.	0 to 4094
-C.	1 to 4094 
-+ D.	1 to 4095
++ C.	1 to 4094 
+D.	1 to 4095
 
 *---------------------------------------------------------------------------------------*
 63.	(<SA>)The Versatile Routing Platform (VRP) uses the file system to manage files and directories on a device. Which of the following commands can be used to check the current directory of a device?

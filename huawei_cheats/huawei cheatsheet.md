@@ -1,12 +1,28 @@
 <div align="center"><h1>HCIA Cheatsheet<h1></div>
 
-Take me to [pookie](#pookie)
+# Contents
 
-> TODO: hybrid port, eth2+1q frames, wifi standarts and default channels,
->
-> blackhole null route, SDN, OpenFlow
+Take me to:
 
-# Basics + Routing & switching
+- [Basics](#basics)
+
+- [OSI](#osi)
+- [MAC](#mac)
+- [IPv4](#ipv4)
+- [IPv6](#ipv6)
+- [OSPF](#ospf)
+- [DHCP](#dhcp)
+- [VLAN (802.1q)](#vlan)
+- [STP & RSTP](#stp)
+- [WLAN](#wlan)
+- [ACL](#acl)
+- [Eth-trunk, iStack & CSS](#ethtrunk)
+- [SDN](#sdn)
+- [Other](#other)
+
+> TODO: SDN, OpenFlow
+
+# <a name="basics">Basics + Routing & switching</a>
 
 - **Switch FLOODS (not discards) if MAC not found **
 - **Switch discards if next port MAC = Source MAC**
@@ -49,9 +65,7 @@ Take me to [pookie](#pookie)
 >
 > При использовании стандарта Ethernet II, 802.1Q вставляет тег перед полем «Тип протокола». Так как фрейм изменился, пересчитывается контрольная сумма.
 
-<a name="pookie">gg</a>
-
-# OSI
+# <a name="osi">OSI</a> 
 
 ![osi](./media/osi.PNG)
 
@@ -59,7 +73,7 @@ Take me to [pookie](#pookie)
 
 ![tcp/ip stack by huawei](./media/huawei_tcpip.PNG)
 
-# MAC 
+# <a name="mac">MAC</a> 
 
 IEEE - MAC 01-80-C2-xx-xx-xx (STP MULTICAST 8bit = 1, 7 - Local administrated addr)
 
@@ -67,7 +81,7 @@ IEEE - MAC 01-80-C2-xx-xx-xx (STP MULTICAST 8bit = 1, 7 - Local administrated ad
 
 ? Terminal host - not multicast ?
 
-# IPv4
+# <a name="ipv4">IPv4</a>
 
 32 bits (24 mask as default)
 
@@ -79,7 +93,7 @@ OSPFv2
 
 ![ip classes](./media/ip_classes.jpg)
 
-# IPv6
+# <a name="ipv6">IPv6</a>
 
 Multicast addresses: https://support.huawei.com/enterprise/en/doc/EDOC1000177796/16e69f9c/multicast-addresses
 
@@ -113,9 +127,11 @@ An IPv6 packet has three parts: an IPv6 basic header, one or more IPv6 extension
 
 ![ndp](./media/ndp.PNG)
 
-# OSPF 
+# <a name="ospf">OSPF</a>
 
 fields: priority, router ID[no 0?] (**HIGHER** is best)
+
+Default priority for an OSPF interface is **1**. The range is from 0 to 255. **0 means that the interface doesNOT** involve in the DR election. 
 
 > Network types
 >
@@ -158,7 +174,7 @@ packets: Hello, DD, LSR, LSU, LSAack (LSA - not packet - link state advertise)
 
 ![ospf states](./media/ospf_states.PNG)
 
-# DHCP
+# <a name="dhcp">DHCP</a>
 
 > addresses can be reused
 
@@ -168,7 +184,7 @@ Packets (in time order): Discover-broadcast, offer-unicast, request-broadcast, a
 
 ![ ](./media/dhcp_phases.PNG)
 
-# VLAN (802.q1)
+# <a name="vlan">VLAN (802.q1)</a>
 
 ID from 1 to 4095 (cisco)
 
@@ -206,10 +222,16 @@ by default all ports in default VLAN (can be manually deleted)
 > Vlan_id != PVID -> check allow pass
 >
 > Vlan_id == PVID -> Eth2
+>
+> Hybrid:
+>
+> The difference between a hybrid port and a trunk port is that a hybrid port allows the packets from multiple VLANs to be sent without tags, but a trunk port only allows the packets from the default VLAN to be sent without tags.
+>
+> For a hybrid interface, you need to configure not only a PVID but also two lists of VLAN IDs permitted by the interface: one untagged VLAN ID list and one tagged VLAN ID list.
 
-# STP + RSTP
+# <a name="stp">STP & RSTP</a>
 
-**LOWER** is best 
+**LOWER** is best (0 - root)
 
 > BID = bridge id (for picking root device)
 >
@@ -260,7 +282,7 @@ Default Forward delay = **15 sec**
 
 ![stp example](./media/stp_example.PNG)
 
-# WLAN
+# <a name="wlan">WLAN</a>
 
 AP upgrade modes: AC, FTP, SFTP *(no tftp)*
 
@@ -307,13 +329,13 @@ packet **Probe** - active STA scanning
 
 ![wlan freqs](./media/wlan_freqs.PNG)
 
-# ACL
+# <a name="acl">ACL</a>
 
 Default increment = 5 , CAN be changed
 
 ![acl_types](./media/acl_types.jpg)
 
-# Eth-Trunk, iStack+ CSS
+# <a name="ethtrunk">Eth-Trunk, iStack & CSS</a>
 
 Layer 2 and 3 both
 
@@ -337,7 +359,7 @@ iStack and CSS provide the same functions, despite their different names and imp
 
 
 
-# SDN
+# <a name="sdn">SDN</a>
 
 > Characteristics:
 >
@@ -348,7 +370,7 @@ iStack and CSS provide the same functions, despite their different names and imp
 
 ![sdn arch](./media/sdn_arch.PNG)
 
-# Other
+# <a name="other">Other</a>
 
 MTU - Maximal transit unit (for interface)
 
